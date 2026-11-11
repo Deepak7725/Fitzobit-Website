@@ -284,13 +284,6 @@ html[lang="ta"] .cart-bar b{padding:10px 14px}
   padding:12px 20px;border-radius:999px;font-weight:500;transition:opacity .3s,transform .3s;box-shadow:var(--shadow);max-width:calc(100% - 32px)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
-/* Samsung Internet dark mode: Samsung inverts the light colours, so the whole page is inverted once more to bring it
-   back to light. Photos are not darkened by Samsung, so they are inverted back. The help sheet sits in the browser's
-   top layer (outside html), so it gets its own flip. Only active with class samsung-dark-fix (see index.html <head>). */
-html.samsung-dark-fix{filter:invert(1) hue-rotate(180deg);background:var(--cream)}
-html.samsung-dark-fix img{filter:invert(1) hue-rotate(180deg)}
-html.samsung-dark-fix dialog[open]{filter:invert(1) hue-rotate(180deg)}
-
 /* reveal on scroll */
 .rise{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .rise.in{opacity:1;transform:none}

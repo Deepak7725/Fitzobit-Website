@@ -51,11 +51,10 @@ here, because the website does not read the app.
 
 ## Samsung Internet dark mode
 The page is light-only (`color-scheme: only light`); Chrome respects that, Samsung Internet's dark mode does not and
-darkens the page anyway (Samsung says sites cannot switch it off). Workaround: when Samsung Internet reports dark mode,
-the whole page is colour-flipped once more (`.samsung-dark-fix` in `site.css`, switched on in the `<head>` of
-`index.html`). `samsungDarkFix` in `config.js`: `'test'` (now) = only with `?samsungfix=1` in the address; `'on'` = every
-Samsung Internet visitor in dark mode; `'off'` = never. `?samsungfix=info` shows what the phone reports; `?samsungfix=0`
-turns it off for that visit.
+darkens the page anyway (Samsung says sites cannot switch it off). A colour-flip correction was tried on 2026-11-11 and
+removed: on the owner's Galaxy S25, Samsung Internet reports **light** mode to the website while darkening it, so the site
+cannot tell when to correct. Decision: leave it (the darkened page stays readable). Visitors can fix it on their phone
+(Samsung Internet dark mode off, or open the site in Chrome).
 
 ## Preview on this computer
 Double-click `index.html`, or in Claude's browser pane use the launch entry `fitzobit-website`
