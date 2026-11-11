@@ -1,0 +1,54 @@
+/* 3D scroll intro: the meal bowl is pinned on screen while the section scrolls past (5 screens tall). */
+.reveal{position:relative;height:520vh;background:var(--cream)}
+.reveal-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+  background:radial-gradient(75% 65% at 50% 62%,#ffffff 0%,#f6f4ec 50%,#e6ecd8 100%)}
+.reveal canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2}
+
+.reveal-title{position:absolute;inset:0;z-index:3;display:grid;align-content:start;justify-items:center;text-align:center;pointer-events:none;
+  padding-top:clamp(96px,15vh,170px);gap:16px}
+.reveal-title img{width:min(78vw,640px);height:auto;filter:drop-shadow(0 8px 24px rgba(255,255,255,.9))}
+.reveal-title p{font-size:clamp(1rem,1.8vw,1.35rem);font-weight:500;color:var(--olive);padding:0 16px}
+
+/* ingredient labels that follow the lifted pieces */
+.reveal-tags{position:absolute;inset:0;z-index:3;pointer-events:none}
+.reveal-tags .tag{position:absolute;left:0;top:0;opacity:0;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--olive);
+  font-size:.86rem;font-weight:600;white-space:nowrap;box-shadow:0 8px 20px -10px rgba(49,59,41,.5);border:1px solid var(--line);will-change:transform}
+.reveal-tags .tag::after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;margin-left:-5px;background:inherit;border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);transform:rotate(45deg)}
+
+.reveal-fade{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;background:var(--cream)}
+
+.reveal-cap{position:absolute;z-index:3;left:max(20px,5vw);bottom:clamp(28px,8vh,90px);display:grid;max-width:400px}
+.reveal-cap .cap{grid-area:1/1;display:grid;gap:10px;align-content:end;opacity:0;transform:translateY(16px);pointer-events:none;
+  transition:opacity .5s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal-cap .cap.on{opacity:1;transform:none;pointer-events:auto}
+.reveal-cap h2{font-size:clamp(1.7rem,3vw,2.5rem)}
+.reveal-cap p{color:var(--muted);font-size:1.05rem}
+.reveal-pref{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.reveal-pref button{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--line);background:rgba(255,255,255,.85);color:var(--olive);font-weight:600;font-size:.92rem}
+.reveal-pref button[aria-pressed="true"]{border-color:var(--olive);background:var(--olive);color:#fff}
+.reveal-pref button[aria-pressed="true"] .dot{background:#fff}
+
+.reveal-progress{position:absolute;z-index:3;right:max(20px,4vw);top:50%;transform:translateY(-50%);display:grid;justify-items:center;gap:14px;
+  font-size:.75rem;font-weight:600;letter-spacing:.1em;color:var(--green-d)}
+.reveal-progress .rail{width:2px;height:28vh;background:var(--line);position:relative;border-radius:2px}
+.reveal-progress .rail i{position:absolute;inset:0;background:var(--orange);transform-origin:top;transform:scaleY(0);border-radius:2px}
+
+.reveal-hint{position:absolute;z-index:3;left:50%;bottom:26px;transform:translateX(-50%);font-size:.75rem;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--green-d);transition:opacity .5s;text-align:center}
+.reveal-hint::after{content:"";display:block;width:2px;height:34px;margin:10px auto 0;background:linear-gradient(var(--green),transparent);animation:hint 1.8s ease-in-out infinite}
+@keyframes hint{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+.reveal-hint.off{opacity:0}
+
+/* 3D could not start: hide the intro so the page opens on the hero */
+.reveal.no-webgl{display:none}
+
+@media (max-width:760px){
+  .reveal-cap{right:20px;bottom:22px;max-width:none}
+  .reveal-cap p{font-size:.95rem}
+  .reveal-progress{display:none}
+  body.has-bar .reveal-cap{bottom:92px}
+  .reveal-hint{display:none}
+  .reveal-title{padding-top:110px}
+}

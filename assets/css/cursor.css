@@ -1,0 +1,31 @@
+/* Fork cursor (mouse only) and the veggie burst on click. */
+html.has-cursor, html.has-cursor *{cursor:none !important}
+html.has-cursor input, html.has-cursor textarea, html.has-cursor select{cursor:text !important}
+html.has-cursor select{cursor:pointer !important}
+
+.cur{position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:0;transition:opacity .25s}
+.cur.on{opacity:1}
+.cur .fork{position:absolute;left:0;top:0;width:40px;height:44px;transform-origin:5px 4px;will-change:transform}
+.cur .fork path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.cur .halo path{stroke:#fff;stroke-width:5}
+.cur .tines path{stroke:var(--green-d);stroke-width:2.4}
+.cur.light .halo path{stroke:var(--olive)}
+.cur.light .tines path{stroke:#d9e7c2}
+
+.cur .ring{position:absolute;left:0;top:0;width:0;height:0;will-change:transform}
+.cur .ring::before{content:"";position:absolute;left:-20px;top:-20px;width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(85,112,58,.55);
+  transition:all .3s cubic-bezier(.2,.8,.2,1)}
+.cur.link .ring::before{left:-28px;top:-28px;width:56px;height:56px;background:rgba(111,138,79,.14);border-color:var(--green)}
+.cur.light .ring::before{border-color:rgba(217,231,194,.8)}
+.cur.down .ring::before{transform:scale(.8)}
+.cur .label{position:absolute;left:0;top:0;transform:translate(-50%,-50%) scale(.6);opacity:0;padding:9px 16px;border-radius:999px;background:var(--orange);color:#fff;
+  font-size:.82rem;font-weight:600;letter-spacing:.04em;white-space:nowrap;transition:opacity .2s,transform .3s cubic-bezier(.3,1.5,.5,1)}
+.cur.text .label{opacity:1;transform:translate(14px,22px) scale(1)}
+.cur.text .ring::before{opacity:0}
+
+/* burst bits */
+.bit{position:fixed;z-index:999;pointer-events:none;display:block}
+.bit.leaf{width:14px;height:8px;background:#5c9a33;border-radius:0 100% 0 100%}
+.bit.carrot{width:11px;height:11px;border-radius:50%;background:radial-gradient(circle,#f6a35c 0 30%,#e8711d 34% 100%)}
+.bit.tomato{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff8a7a 0 15%,#d3302a 30%)}
+.bit.pea{width:8px;height:8px;border-radius:50%;background:#7cb342}
