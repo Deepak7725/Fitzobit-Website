@@ -1,5 +1,6 @@
 /* Fitzobit website — base styles. Colours come from the logo. */
 :root{
+  color-scheme:only light; /* light design only: no browser auto dark mode */
   --cream:#f7f5ee; --paper:#fffdf8; --sage:#e9efdf; --sage-2:#dbe5c9;
   --green:#6f8a4f; --green-d:#55703a; --olive:#313b29; --ink:#222a1c; --muted:#5d6852;
   --orange:#cf4604; --orange-d:#b33c02; --tomato:#c8322b; --yolk:#f2a419; --wa:#1f9e55; --wa-d:#178347;
