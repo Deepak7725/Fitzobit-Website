@@ -319,7 +319,7 @@
   $$('.js-email').forEach(function (el) { el.textContent = C.email; });
   $$('.js-insta, .insta-link').forEach(function (a) { a.href = C.instagram; });
   $$('.js-address').forEach(function (el) { el.textContent = C.address; });
-  $$('.js-fssai').forEach(function (el) { el.textContent = C.fssai; });
+  $$('.js-fssai').forEach(function (el) { el.textContent = C.fssai; el.parentNode.hidden = !C.fssai; });   // no number yet: hide the line
 
   // ---------- header + mobile nav ----------
   var top = $('#top'), reveal = $('#reveal');

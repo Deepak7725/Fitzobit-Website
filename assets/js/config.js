@@ -4,21 +4,21 @@
   After editing, reload the page (Ctrl+F5).
 */
 window.FITZ = {
-  // WhatsApp number that receives orders: country code 91 + 10 digits, no spaces or +.   PLACEHOLDER
-  whatsapp: '91XXXXXXXXXX',
-  // Shown in the footer (call button uses the same number unless phone is set).          PLACEHOLDER
-  phone: '+91 XXXXX XXXXX',
-  email: 'hello@example.com',                                                            // PLACEHOLDER
-  address: 'Kitchen address, Thanjavur, Tamil Nadu 6130XX',                              // PLACEHOLDER
-  fssai: 'XXXXXXXXXXXXXX',                                                               // PLACEHOLDER (14 digits)
+  // WhatsApp number that receives orders: country code 91 + 10 digits, no spaces or +.
+  whatsapp: '917010479248',
+  // Shown in the footer; the Call button rings the WhatsApp number.
+  phone: '+91 70104 79248',
+  email: 'fitzobit@gmail.com',
+  address: 'Thanjavur, Tamil Nadu',                                                      // PLACEHOLDER: full kitchen address later
+  fssai: '',                                                                             // PLACEHOLDER: 14 digits; empty = line hidden
   instagram: 'https://www.instagram.com/fitzobit/',
   // Up to 6 photos for the Instagram strip, e.g. 'assets/img/ig-1.webp'. Empty = drawn placeholders.   PLACEHOLDER
   instagramPhotos: [],
 
-  // Pincodes we deliver to (Thanjavur city).                                            PLACEHOLDER: owner to check the list
+  // Pincodes we deliver to (Thanjavur city; owner kept this list on 2026-11-11).
   pincodes: ['613001', '613002', '613003', '613004', '613005', '613006', '613007', '613008', '613009', '613010'],
 
-  // Delivery time choices in the order form.                                            PLACEHOLDER
+  // Delivery time choices in the order form (owner chose 1-hour slots on 2026-11-11).
   deliveryTimes: ['6:00 – 7:00 AM', '7:00 – 8:00 AM', '8:00 – 9:00 AM'],
 
   // Packages: delivery days per package (Sundays are never delivery days).
