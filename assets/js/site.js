@@ -51,7 +51,7 @@
 
   // ---------- menu ----------
   var current = 'monthly';
-  var choice = {};      // per meal: { pref, qty }
+  var choice = {};      // per meal: { pref }
   function renderTabs() {
     var box = $('#planTabs'); box.innerHTML = '';
     C.plans.forEach(function (p) {
@@ -60,50 +60,75 @@
       b.innerHTML = '<span></span><small></small>';
       b.firstChild.textContent = L(p.name);
       b.lastChild.textContent = p.days === 1 ? t('menu.day1') : t('menu.days', { n: p.days });
-      b.addEventListener('click', function () { current = p.id; renderTabs(); renderMenu(); });
+      b.addEventListener('click', function () { current = p.id; renderTabs(); renderMenu(); toMenuTop(); });
       box.appendChild(b);
     });
   }
+  // after switching package while scrolled down the menu, bring the first meal back under the pinned tabs
+  function toMenuTop() {
+    var bar = $('.plan-bar'), grid = $('#menuGrid');
+    var under = bar.getBoundingClientRect().bottom + 8;
+    if (grid.getBoundingClientRect().top < under) scrollTo({ top: scrollY + grid.getBoundingClientRect().top - under, behavior: 'smooth' });
+  }
+  // meal picture: the photo from config.js when there is one, otherwise the drawing
+  function pic(m) {
+    return m.photo ? '<img src="' + m.photo + '" alt="" loading="lazy">' : ICONS[m.icon];
+  }
+  // tiles (2 columns on phones): picture with + on it (− n + once added), package chip, price, name, Veg / With egg
   function renderMenu() {
-    var grid = $('#menuGrid'), p = plan(current); grid.innerHTML = '';
+    var grid = $('#menuGrid'), p = plan(current);
+    var focusKey = document.activeElement && document.activeElement.dataset ? document.activeElement.dataset.f : '';
+    grid.innerHTML = '';
     C.menu.forEach(function (m) {
       var price = m.prices[current]; if (!price) return;
-      var ch = choice[m.id] || (choice[m.id] = { pref: 'veg', qty: 1 });
-      var card = document.createElement('article'); card.className = 'card rise in';
-      var per = p.days > 1 ? ' · ' + t('menu.perbox', { n: Math.round(price / p.days) }) : '';
-      card.innerHTML =
-        '<div class="art">' + ICONS[m.icon] + '</div>' +
-        '<div class="body"><h3></h3><p class="desc"></p>' +
-        '<div class="price"><b>' + rupees(price) + '</b><span></span></div>' +
-        '<div class="opts">' +
-          (m.egg ? '<div class="pref" role="group"><button type="button" data-p="veg"><i class="dot veg"></i></button><button type="button" data-p="egg"><i class="dot egg"></i></button></div>' : '<span></span>') +
-          '<div class="qty"><button type="button" data-q="-1" aria-label="−">−</button><output>' + ch.qty + '</output><button type="button" data-q="1" aria-label="+">+</button></div>' +
-        '</div>' +
-        '<button type="button" class="btn btn-primary add" data-cursor-key="cursor.add"></button></div>';
-      card.querySelector('h3').textContent = L(m.name);
-      card.querySelector('.desc').textContent = L(m.desc);
-      card.querySelector('.price span').textContent = (p.days === 1 ? t('menu.day1') : t('menu.days', { n: p.days })) + per;
-      card.querySelector('.qty').setAttribute('aria-label', t('menu.qty'));
-      $$('.pref button', card).forEach(function (b) {
+      var ch = choice[m.id] || (choice[m.id] = { pref: 'veg' });
+      var pref = m.egg ? ch.pref : '', n = qtyOf(m.id, current, pref);
+      var tile = document.createElement('article'); tile.className = 'tile' + (n ? ' in-cart' : '');
+      tile.innerHTML =
+        '<div class="pic">' + pic(m) + '<div class="act">' +
+          (n ? '<div class="step"><button type="button" data-q="-1" data-f="' + m.id + '-">−</button><output>' + n + '</output><button type="button" data-q="1" data-f="' + m.id + '+">+</button></div>'
+             : '<button type="button" class="plus" data-q="1" data-f="' + m.id + '+" data-cursor-key="cursor.add">+</button>') +
+        '</div></div>' +
+        '<span class="chip"></span>' +
+        '<div class="price"><b>' + rupees(price) + '</b>' + (p.days > 1 ? '<small></small>' : '') + '</div>' +
+        '<h3></h3><p class="desc"></p>' +
+        (m.egg ? '<div class="pref" role="group"><button type="button" data-p="veg"><i class="dot veg"></i></button><button type="button" data-p="egg"><i class="dot egg"></i></button></div>' : '');
+      tile.querySelector('.chip').textContent = p.days === 1 ? t('menu.day1') : t('menu.days', { n: p.days });
+      if (p.days > 1) tile.querySelector('.price small').textContent = t('menu.perbox', { n: Math.round(price / p.days) });
+      tile.querySelector('h3').textContent = L(m.name);
+      tile.querySelector('.desc').textContent = L(m.desc);
+      $$('[data-q]', tile).forEach(function (b) {
+        b.setAttribute('aria-label', (b.dataset.q > 0 ? t('menu.add') : t('cart.remove')) + ': ' + L(m.name));
+        b.addEventListener('click', function () { b.dataset.q > 0 ? addToCart(m.id, current, pref, 1) : addToCart(m.id, current, pref, -1); });
+      });
+      $$('.pref button', tile).forEach(function (b) {
         b.appendChild(document.createTextNode(t(b.dataset.p === 'veg' ? 'pref.veg' : 'pref.egg')));
         b.setAttribute('aria-pressed', b.dataset.p === ch.pref);
-        b.addEventListener('click', function () { ch.pref = b.dataset.p; $$('.pref button', card).forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); });
+        b.addEventListener('click', function () { ch.pref = b.dataset.p; renderMenu(); });   // the + / − then follows this choice
       });
-      var out = card.querySelector('output'), minus = card.querySelector('[data-q="-1"]');
-      minus.disabled = ch.qty <= 1;
-      $$('[data-q]', card).forEach(function (b) {
-        b.addEventListener('click', function () { ch.qty = Math.min(9, Math.max(1, ch.qty + Number(b.dataset.q))); out.textContent = ch.qty; minus.disabled = ch.qty <= 1; });
-      });
-      var add = card.querySelector('.add'); add.textContent = t('menu.add');
-      add.addEventListener('click', function () {
-        addToCart(m.id, current, m.egg ? ch.pref : '', ch.qty);
-        add.textContent = t('menu.added'); add.classList.add('ok');
-        setTimeout(function () { add.textContent = t('menu.add'); add.classList.remove('ok'); }, 1300);
-      });
-      grid.appendChild(card);
+      grid.appendChild(tile);
     });
+    if (focusKey) { var f = $('[data-f="' + focusKey + '"]', grid) || $('[data-f^="' + focusKey.slice(0, -1) + '"]', grid); if (f) f.focus(); }
   }
-  $('#tryOne').addEventListener('click', function () { current = 'trial'; renderTabs(); renderMenu(); });
+
+  // ---------- banner picture (laptops/desktops; hidden on phones by CSS) ----------
+  $('#introArt').innerHTML = C.bannerImage
+    ? '<img src="' + C.bannerImage + '" alt="" loading="lazy">'
+    : '<div class="plate big">' + ICONS.bowl + '</div><div class="plate p1">' + ICONS.meal + '</div>' +
+      '<div class="plate p2">' + ICONS.oats + '</div><div class="plate p3">' + ICONS.drink + '</div>';
+
+  // ---------- how it works (help sheet) ----------
+  var help = $('#help');
+  function openHelp() {
+    if (typeof help.showModal === 'function') help.showModal(); else help.setAttribute('open', '');
+    document.documentElement.style.overflow = 'hidden';
+  }
+  function closeHelp() { if (help.close) help.close(); else help.removeAttribute('open'); }
+  help.addEventListener('close', function () { document.documentElement.style.overflow = ''; });
+  $$('.js-help').forEach(function (b) { b.addEventListener('click', openHelp); });
+  $('#helpClose').addEventListener('click', closeHelp);
+  $('#helpGo').addEventListener('click', function () { closeHelp(); $('#menu').scrollIntoView({ behavior: 'smooth' }); });
+  help.addEventListener('click', function (e) { if (e.target === help) closeHelp(); });   // tap outside the sheet
 
   // ---------- cart ----------
   var cart = (store('fitzobit.cart.v1') || []).filter(function (l) { return meal(l.meal) && plan(l.plan) && meal(l.meal).prices[l.plan]; });
@@ -111,12 +136,16 @@
   function lineTotal(l) { return meal(l.meal).prices[l.plan] * l.qty; }
   function total() { return cart.reduce(function (s, l) { return s + lineTotal(l); }, 0); }
   function count() { return cart.reduce(function (s, l) { return s + l.qty; }, 0); }
+  function lineOf(m, p, pref) { return cart.filter(function (l) { return l.meal === m && l.plan === p && l.pref === pref; })[0]; }
+  function qtyOf(m, p, pref) { var l = lineOf(m, p, pref); return l ? l.qty : 0; }
+  // qty +1 adds (a new line shows a short note), −1 takes one away and drops the line at 0
   function addToCart(m, p, pref, qty) {
-    var same = cart.filter(function (l) { return l.meal === m && l.plan === p && l.pref === pref; })[0];
-    if (same) same.qty = Math.min(9, same.qty + qty); else cart.push({ meal: m, plan: p, pref: pref, qty: qty });
+    var same = lineOf(m, p, pref);
+    if (same) { same.qty = Math.min(9, same.qty + qty); if (same.qty < 1) cart.splice(cart.indexOf(same), 1); }
+    else if (qty > 0) cart.push({ meal: m, plan: p, pref: pref, qty: qty });
     save(); renderCart();
-    var b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
-    toast(L(meal(m).name) + ' · ' + L(plan(p).name) + ' ✓');
+    if (qty > 0) { var b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
+    if (!same && qty > 0) toast(L(meal(m).name) + ' · ' + L(plan(p).name) + ' ✓');
   }
   function lineLabel(l) {
     var p = plan(l.plan), bits = [L(p.name) + (p.days > 1 ? ' (' + t('menu.days', { n: p.days }) + ')' : '')];
@@ -135,7 +164,7 @@
     var ul = $('#cartLines'); ul.innerHTML = '';
     cart.forEach(function (l, i) {
       var li = document.createElement('li'); li.className = 'line';
-      li.innerHTML = '<div class="ico">' + ICONS[meal(l.meal).icon] + '</div><div><h4></h4><div class="meta"></div></div>' +
+      li.innerHTML = '<div class="ico">' + pic(meal(l.meal)) + '</div><div><h4></h4><div class="meta"></div></div>' +
         '<div class="right"><span class="amt">' + rupees(lineTotal(l)) + '</span><div class="qty"><button type="button" data-q="-1" aria-label="−">−</button><output>' + l.qty +
         '</output><button type="button" data-q="1" aria-label="+">+</button></div><button type="button" class="rm"></button></div>';
       li.querySelector('h4').textContent = L(meal(l.meal).name);
@@ -152,6 +181,7 @@
       ul.appendChild(li);
     });
     if (n === 0 && !$('#viewForm').hidden) show('cart');
+    renderMenu();   // keep the + / − on the tiles in step with the cart
   }
 
   // ---------- drawer ----------
@@ -297,16 +327,18 @@
   }
   $('#pinForm').addEventListener('submit', function (e) { e.preventDefault(); checkPin(digits($('#pinInput').value)); });
 
-  // ---------- instagram tiles (placeholders until photos are added to config/images) ----------
+  // ---------- instagram tiles (config.js instagramPhotos; drawn placeholders when the list is empty) ----------
   var TILE_BG = ['#e9efdf', '#fbe7d9', '#f6efd9', '#e3ecd2', '#fde9e4', '#eef3e6'];
   var TILE_ICON = ['meal', 'bowl', 'oats', 'drink', 'bowl', 'meal'];
+  var PLAY = '<svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>';
   function renderTiles() {
     var box = $('#instaTiles'); box.innerHTML = '';
     (C.instagramPhotos && C.instagramPhotos.length ? C.instagramPhotos : TILE_ICON).slice(0, 6).forEach(function (x, i) {
-      var a = document.createElement('a'); a.href = C.instagram; a.target = '_blank'; a.rel = 'noopener'; a.style.background = TILE_BG[i % 6];
-      a.setAttribute('aria-label', 'Instagram @fitzobit');
-      if (ICONS[x]) a.innerHTML = '<div class="ph">' + ICONS[x] + '<span>' + t('insta.soon') + '</span></div>';
-      else { var im = new Image(); im.src = x; im.alt = ''; im.loading = 'lazy'; a.appendChild(im); }
+      var post = typeof x === 'string' ? { img: x } : x;   // a plain path still works (opens the profile)
+      var a = document.createElement('a'); a.href = post.url || C.instagram; a.target = '_blank'; a.rel = 'noopener'; a.style.background = TILE_BG[i % 6];
+      a.setAttribute('aria-label', 'Instagram ' + (i + 1));
+      if (ICONS[post.img]) a.innerHTML = '<div class="ph">' + ICONS[post.img] + '<span>' + t('insta.soon') + '</span></div>';
+      else { var im = new Image(); im.src = post.img; im.alt = ''; im.loading = 'lazy'; a.appendChild(im); if (/\/reel\//.test(post.url || '')) a.insertAdjacentHTML('beforeend', PLAY); }
       box.appendChild(a);
     });
   }
@@ -322,11 +354,8 @@
   $$('.js-fssai').forEach(function (el) { el.textContent = C.fssai; el.parentNode.hidden = !C.fssai; });   // no number yet: hide the line
 
   // ---------- header + mobile nav ----------
-  var top = $('#top'), reveal = $('#reveal');
-  function onScroll() {
-    var end = reveal && !reveal.classList.contains('no-webgl') ? reveal.offsetTop + reveal.offsetHeight - 90 : 10;
-    top.classList.toggle('solid', scrollY > end);
-  }
+  var top = $('#top');
+  function onScroll() { top.classList.toggle('solid', scrollY > 4); }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
   var nav = $('#nav'), tog = $('#navToggle');
   tog.addEventListener('click', function () { var o = !nav.classList.contains('open'); nav.classList.toggle('open', o); tog.setAttribute('aria-expanded', o); });
@@ -336,7 +365,7 @@
   var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -10% 0px' }) : null;
-  $$('.hero-copy, .hero-art, .steps li, .area-card, .faq details, .insta .tiles').forEach(function (el) { el.classList.add('rise'); if (io) io.observe(el); else el.classList.add('in'); });
+  $$('.area-card, .faq details, .insta .tiles').forEach(function (el) { el.classList.add('rise'); if (io) io.observe(el); else el.classList.add('in'); });
 
   applyLang();
 })();

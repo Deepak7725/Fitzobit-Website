@@ -7,18 +7,11 @@ window.FITZ_TEXT = {
   en: {
     'nav.menu': 'Menu', 'nav.how': 'How it works', 'nav.area': 'Delivery area', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
     'nav.order': 'Order now', 'cart.open': 'Open cart',
-
-    'reveal.tagline': 'Healthy meals, delivered fresh in Thanjavur', 'reveal.hint': 'Scroll',
-    'cap1.eyebrow': '01 · Fresh every day', 'cap1.h': 'Balanced meals at your door', 'cap1.p': 'Delivered fresh, Monday to Saturday.',
-    'cap2.eyebrow': '02 · What’s inside', 'cap2.h': 'Protein, fibre and good carbs', 'cap2.p': 'Grains, greens, vegetables and protein in every meal box.',
-    'cap3.eyebrow': '03 · Your choice', 'cap3.h': 'Veg or with egg', 'cap3.p': 'Choose it for every package.',
-    'cap4.eyebrow': '04 · Your plan', 'cap4.h': 'Monthly, weekly or try one', 'cap4.p': '26 delivery days, 6 delivery days, or one trial box for ₹189.',
-    'chip.protein': 'Protein', 'chip.fibre': 'Fibre', 'chip.carbs': 'Good carbs', 'chip.greens': 'Greens',
     'pref.veg': 'Veg', 'pref.egg': 'With egg',
 
     'hero.eyebrow': 'Meal delivery · Thanjavur', 'hero.h1a': 'Eat well.', 'hero.h1b': 'Every day.',
-    'hero.lede': 'Fitzobit delivers fresh, balanced meal boxes to your door in Thanjavur, Monday to Saturday. Pick a package, order on WhatsApp, and we take care of the rest.',
-    'hero.cta1': 'See the menu', 'hero.cta2': 'Try one meal · ₹189',
+    'intro.lede': 'Fresh, balanced meal boxes at your door, Monday to Saturday. Order on WhatsApp.',
+    'help.open': 'How it works', 'help.go': 'Got it — show the menu', 'help.ask': 'Ask us on WhatsApp',
     'fact.days': 'Mon–Sat delivery', 'fact.pref': 'Veg or with egg', 'fact.upi': 'Pay by UPI', 'fact.pause': 'Pause when you need',
 
     'how.eyebrow': 'Simple as that', 'how.h': 'How it works',
@@ -29,7 +22,7 @@ window.FITZ_TEXT = {
 
     'menu.eyebrow': 'Menu & packages', 'menu.h': 'Pick your box', 'menu.sub': 'Prices are for the whole package. Same price for veg and with egg.',
     'menu.days': '{n} delivery days', 'menu.day1': '1 box', 'menu.perbox': '≈ ₹{n} a box', 'menu.add': 'Add to cart', 'menu.added': 'Added ✓',
-    'menu.qty': 'Quantity',
+    'menu.qty': 'Quantity', 'menu.addShort': 'Add', 'menu.howlink': 'How does ordering work?',
 
     'area.eyebrow': 'Delivery area', 'area.h': 'Do we deliver to you?', 'area.p': 'We deliver in Thanjavur city, Monday to Saturday. Sundays are off.',
     'area.ph': 'Your 6-digit pincode', 'area.btn': 'Check',
@@ -69,18 +62,11 @@ window.FITZ_TEXT = {
   ta: {
     'nav.menu': 'மெனு', 'nav.how': 'எப்படி செயல்படுகிறது', 'nav.area': 'டெலிவரி பகுதி', 'nav.faq': 'கேள்விகள்', 'nav.contact': 'தொடர்பு',
     'nav.order': 'ஆர்டர் செய்', 'cart.open': 'கார்ட்டைத் திற',
-
-    'reveal.tagline': 'தஞ்சாவூரில் ஆரோக்கியமான உணவு, புதிதாக உங்கள் வீட்டுக்கே', 'reveal.hint': 'கீழே உருட்டவும்',
-    'cap1.eyebrow': '01 · தினமும் புதிது', 'cap1.h': 'சமச்சீர் உணவு உங்கள் வாசலில்', 'cap1.p': 'திங்கள் முதல் சனி வரை, புதிதாக டெலிவரி.',
-    'cap2.eyebrow': '02 · உள்ளே என்ன இருக்கிறது', 'cap2.h': 'புரதம், நார்ச்சத்து, நல்ல கார்போஹைட்ரேட்', 'cap2.p': 'ஒவ்வொரு உணவுப் பெட்டியிலும் தானியம், கீரை, காய்கறி மற்றும் புரதம்.',
-    'cap3.eyebrow': '03 · உங்கள் விருப்பம்', 'cap3.h': 'சைவம் அல்லது முட்டையுடன்', 'cap3.p': 'ஒவ்வொரு பேக்கேஜுக்கும் தேர்வு செய்யுங்கள்.',
-    'cap4.eyebrow': '04 · உங்கள் திட்டம்', 'cap4.h': 'மாதம், வாரம் அல்லது ஒரு முறை முயற்சி', 'cap4.p': '26 டெலிவரி நாட்கள், 6 டெலிவரி நாட்கள், அல்லது ₹189-க்கு ஒரு சோதனைப் பெட்டி.',
-    'chip.protein': 'புரதம்', 'chip.fibre': 'நார்ச்சத்து', 'chip.carbs': 'நல்ல கார்ப்ஸ்', 'chip.greens': 'கீரை',
     'pref.veg': 'சைவம்', 'pref.egg': 'முட்டையுடன்',
 
     'hero.eyebrow': 'உணவு டெலிவரி · தஞ்சாவூர்', 'hero.h1a': 'நன்றாக சாப்பிடுங்கள்.', 'hero.h1b': 'தினமும்.',
-    'hero.lede': 'Fitzobit தஞ்சாவூரில் திங்கள் முதல் சனி வரை புதிய, சமச்சீரான உணவுப் பெட்டிகளை உங்கள் வீட்டுக்கே கொண்டு வருகிறது. ஒரு பேக்கேஜைத் தேர்ந்தெடுத்து WhatsApp-ல் ஆர்டர் செய்யுங்கள் — மீதியை நாங்கள் பார்த்துக்கொள்கிறோம்.',
-    'hero.cta1': 'மெனுவைப் பாருங்கள்', 'hero.cta2': 'ஒரு உணவை முயற்சிக்கவும் · ₹189',
+    'intro.lede': 'புதிய, சமச்சீரான உணவுப் பெட்டிகள் உங்கள் வீட்டுக்கே, திங்கள் முதல் சனி வரை. WhatsApp-ல் ஆர்டர் செய்யுங்கள்.',
+    'help.open': 'எப்படி செயல்படுகிறது', 'help.go': 'புரிந்தது — மெனுவைக் காட்டு', 'help.ask': 'WhatsApp-ல் கேளுங்கள்',
     'fact.days': 'திங்கள்–சனி டெலிவரி', 'fact.pref': 'சைவம் அல்லது முட்டை', 'fact.upi': 'UPI-ல் பணம்', 'fact.pause': 'தேவைக்கு இடைநிறுத்தம்',
 
     'how.eyebrow': 'மிக எளிது', 'how.h': 'எப்படி செயல்படுகிறது',
@@ -91,7 +77,7 @@ window.FITZ_TEXT = {
 
     'menu.eyebrow': 'மெனு & பேக்கேஜ்கள்', 'menu.h': 'உங்கள் பெட்டியைத் தேர்ந்தெடுங்கள்', 'menu.sub': 'விலை முழு பேக்கேஜுக்கு. சைவம், முட்டை இரண்டுக்கும் ஒரே விலை.',
     'menu.days': '{n} டெலிவரி நாட்கள்', 'menu.day1': '1 பெட்டி', 'menu.perbox': 'ஒரு பெட்டி ≈ ₹{n}', 'menu.add': 'கார்ட்டில் சேர்', 'menu.added': 'சேர்க்கப்பட்டது ✓',
-    'menu.qty': 'எண்ணிக்கை',
+    'menu.qty': 'எண்ணிக்கை', 'menu.addShort': 'சேர்', 'menu.howlink': 'ஆர்டர் எப்படி செய்வது?',
 
     'area.eyebrow': 'டெலிவரி பகுதி', 'area.h': 'உங்கள் பகுதிக்கு டெலிவரி உண்டா?', 'area.p': 'தஞ்சாவூர் நகரில், திங்கள் முதல் சனி வரை டெலிவரி செய்கிறோம். ஞாயிறு விடுமுறை.',
     'area.ph': 'உங்கள் 6 இலக்க பின்கோடு', 'area.btn': 'சரிபார்',

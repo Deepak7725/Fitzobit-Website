@@ -12,8 +12,19 @@ window.FITZ = {
   address: 'Thanjavur, Tamil Nadu',                                                      // PLACEHOLDER: full kitchen address later
   fssai: '',                                                                             // PLACEHOLDER: 14 digits; empty = line hidden
   instagram: 'https://www.instagram.com/fitzobit/',
-  // Up to 6 photos for the Instagram strip, e.g. 'assets/img/ig-1.webp'. Empty = drawn placeholders.   PLACEHOLDER
-  instagramPhotos: [],
+  // Up to 6 Instagram posts for the strip: img = cover picture in assets/img, url = the post it opens.
+  // Picked by the owner on 2026-11-11 (reel covers saved from Instagram). Empty list = drawn placeholders.
+  instagramPhotos: [
+    { img: 'assets/img/ig-1.jpg', url: 'https://www.instagram.com/fitzobit/reel/DeR1AW-p4CX/' },
+    { img: 'assets/img/ig-2.jpg', url: 'https://www.instagram.com/uzhavanxpress/reel/Def0AU9i7Zp/' },
+    { img: 'assets/img/ig-3.jpg', url: 'https://www.instagram.com/thanjavur_citizen_/reel/DfCeBACSLpB/' },
+    { img: 'assets/img/ig-4.jpg', url: 'https://www.instagram.com/fitzobit/reel/Desz9SCpXA6/' },
+    { img: 'assets/img/ig-5.jpg', url: 'https://www.instagram.com/vjpraveen_vlogs/reel/DeswNWyI3Ie/' },
+    { img: 'assets/img/ig-6.jpg', url: 'https://www.instagram.com/fitzobit/reel/DesvAUNJOXQ/' },
+  ],
+  // Wide food photo for the banner at the top on laptops/desktops (phones open straight on the menu),
+  // e.g. 'assets/img/banner.webp' (about 1200 × 700). Empty = drawn meals.                        PLACEHOLDER
+  bannerImage: '',
 
   // Pincodes we deliver to (Thanjavur city; owner kept this list on 2026-11-11).
   pincodes: ['613001', '613002', '613003', '613004', '613005', '613006', '613007', '613008', '613009', '613010'],
@@ -31,7 +42,9 @@ window.FITZ = {
   // Menu. Prices = whole package in rupees (same for veg and with egg), copied from the app's Money page on 2026-11-10.
   // egg: true = customer chooses Veg or With egg; false = no choice shown.
   // Descriptions are DRAFTS until checked against the WhatsApp catalogue.                PLACEHOLDER
-  // icon: meal | bowl | oats | drink (the little drawing on the card).
+  // icon: meal | bowl | oats | drink (the drawing on the tile).
+  // photo: optional real photo for the tile, e.g. photo: 'assets/img/regular.webp' (square, about 600 × 600).
+  //        When a meal has a photo it is shown instead of the drawing.                           PLACEHOLDER
   menu: [
     { id: 'regular', icon: 'meal', egg: true, prices: { monthly: 2999, weekly: 899, trial: 189 },
       name: { en: 'Regular Meal', ta: 'ரெகுலர் மீல்' },

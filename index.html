@@ -20,33 +20,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/reveal3d.css">
-<link rel="stylesheet" href="assets/css/cursor.css">
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<!-- ?v= is a version tag: change it (e.g. to today's date) whenever a css/js file changes, so browsers fetch the new file -->
+<link rel="stylesheet" href="assets/css/site.css?v=20261111">
+<link rel="stylesheet" href="assets/css/cursor.css?v=20261111">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FoodEstablishment","name":"Fitzobit","description":"Healthy meal box delivery in Thanjavur, Monday to Saturday","servesCuisine":"Healthy meals","areaServed":"Thanjavur","address":{"@type":"PostalAddress","addressLocality":"Thanjavur","addressRegion":"Tamil Nadu","addressCountry":"IN"},"sameAs":["https://www.instagram.com/fitzobit/"]}
 </script>
-<script src="assets/js/config.js"></script>
-<script src="assets/js/i18n.js"></script>
+<script src="assets/js/config.js?v=20261111"></script>
+<script src="assets/js/i18n.js?v=20261111"></script>
 </head>
 <body>
 <a class="skip" href="#menu" data-i18n="nav.menu">Menu</a>
 
 <header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="#hero" aria-label="Fitzobit">
+    <a class="brand" href="#menu" aria-label="Fitzobit">
       <img src="assets/img/logo-mark.png" alt="" width="500" height="493">
       <img class="word" src="assets/img/logo-word.png" alt="Fitzobit" width="680" height="91">
     </a>
     <nav class="nav" id="nav" aria-label="Main">
       <a href="#menu" data-i18n="nav.menu">Menu</a>
-      <a href="#how" data-i18n="nav.how">How it works</a>
       <a href="#area" data-i18n="nav.area">Delivery area</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="top-actions">
+      <button type="button" class="help-btn js-help" data-i18n-aria="help.open" aria-label="How it works">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.1" fill="currentColor"/></svg>
+      </button>
       <button type="button" class="lang" id="lang" lang="ta">தமிழ்</button>
       <button type="button" class="cart-btn" id="cartBtn" data-i18n-aria="cart.open" aria-label="Open cart" data-cursor-key="cursor.order">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L20.5 8H6.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="19.5" r="1.4" fill="currentColor"/><circle cx="17" cy="19.5" r="1.4" fill="currentColor"/></svg>
@@ -60,75 +61,30 @@
 </header>
 
 <main>
-<section class="reveal" id="reveal" aria-label="Fitzobit meal bowl in 3D">
-  <div class="reveal-pin" data-cursor-key="cursor.scroll">
-    <canvas aria-hidden="true"></canvas>
-    <div class="reveal-title">
-      <img src="assets/img/logo-word.png" alt="Fitzobit" width="680" height="91">
-      <p data-i18n="reveal.tagline">Healthy meals, delivered fresh in Thanjavur</p>
-    </div>
-    <div class="reveal-tags" aria-hidden="true">
-      <span class="tag" data-i18n="chip.protein">Protein</span>
-      <span class="tag" data-i18n="chip.fibre">Fibre</span>
-      <span class="tag" data-i18n="chip.carbs">Good carbs</span>
-      <span class="tag" data-i18n="chip.greens">Greens</span>
-    </div>
-    <div class="reveal-cap">
-      <div class="cap"><span class="eyebrow" data-i18n="cap1.eyebrow">01 · Fresh every day</span><h2 data-i18n="cap1.h">Balanced meals at your door</h2><p data-i18n="cap1.p">Delivered fresh, Monday to Saturday.</p></div>
-      <div class="cap"><span class="eyebrow" data-i18n="cap2.eyebrow">02 · What’s inside</span><h2 data-i18n="cap2.h">Protein, fibre and good carbs</h2><p data-i18n="cap2.p">Grains, greens, vegetables and protein in every meal box.</p></div>
-      <div class="cap"><span class="eyebrow" data-i18n="cap3.eyebrow">03 · Your choice</span><h2 data-i18n="cap3.h">Veg or with egg</h2><p data-i18n="cap3.p">Choose it for every package.</p>
-        <div class="reveal-pref" role="group" aria-label="Veg or with egg">
-          <button type="button" data-pref="veg"><i class="dot veg"></i><span data-i18n="pref.veg">Veg</span></button>
-          <button type="button" data-pref="egg"><i class="dot egg"></i><span data-i18n="pref.egg">With egg</span></button>
-        </div></div>
-      <div class="cap"><span class="eyebrow" data-i18n="cap4.eyebrow">04 · Your plan</span><h2 data-i18n="cap4.h">Monthly, weekly or try one</h2><p data-i18n="cap4.p">26 delivery days, 6 delivery days, or one trial box for ₹189.</p></div>
-    </div>
-    <div class="reveal-progress" aria-hidden="true"><span class="reveal-step">01</span><div class="rail"><i></i></div><span>04</span></div>
-    <div class="reveal-hint" data-i18n="reveal.hint">Scroll</div>
-    <div class="reveal-fade"></div>
-  </div>
-</section>
-
-<section class="hero" id="hero">
+<!-- Menu first: a short intro line, then the menu straight away (most visitors come from Instagram on a phone) -->
+<section class="menu" id="menu">
   <div class="wrap">
-    <div class="hero-copy">
+    <!-- on laptops/desktops this is a banner with a food picture on the right (config.js bannerImage) -->
+    <div class="intro">
+      <div class="intro-art" id="introArt" aria-hidden="true"></div>
+      <div class="intro-copy">
       <span class="eyebrow" data-i18n="hero.eyebrow">Meal delivery · Thanjavur</span>
       <h1><span data-i18n="hero.h1a">Eat well.</span> <em data-i18n="hero.h1b">Every day.</em></h1>
-      <p class="lede" data-i18n="hero.lede">Fitzobit delivers fresh, balanced meal boxes to your door in Thanjavur, Monday to Saturday. Pick a package, order on WhatsApp, and we take care of the rest.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="#menu" data-i18n="hero.cta1">See the menu</a>
-        <a class="btn btn-line" href="#menu" id="tryOne" data-i18n="hero.cta2">Try one meal · ₹189</a>
-      </div>
+      <p class="lede" data-i18n="intro.lede">Fresh, balanced meal boxes at your door, Monday to Saturday. Order on WhatsApp.</p>
       <ul class="facts">
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-i18n="fact.days">Mon–Sat delivery</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14zM5 19l7-7"/></svg><span data-i18n="fact.pref">Veg or with egg</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg><span data-i18n="fact.upi">Pay by UPI</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M10 9v6M14 9v6"/></svg><span data-i18n="fact.pause">Pause when you need</span></li>
       </ul>
+      </div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="disc"></div>
-      <img src="assets/img/logo-mark.png" alt="" width="500" height="493">
+    <!-- package tabs stay pinned under the header while the menu scrolls -->
+    <div class="plan-bar">
+      <div class="tabs" id="planTabs" role="tablist" aria-label="Package"></div>
     </div>
-  </div>
-</section>
-
-<section class="how" id="how">
-  <div class="wrap">
-    <div class="head"><span class="eyebrow" data-i18n="how.eyebrow">Simple as that</span><h2 data-i18n="how.h">How it works</h2></div>
-    <ol class="steps">
-      <li><b>1</b><h3 data-i18n="how.1h">Choose</h3><p data-i18n="how.1p">Pick your meals and a monthly, weekly or trial package.</p></li>
-      <li><b>2</b><h3 data-i18n="how.2h">Order on WhatsApp</h3><p data-i18n="how.2p">Fill in your address and start date. WhatsApp opens with your order ready — just press Send.</p></li>
-      <li><b>3</b><h3 data-i18n="how.3h">We confirm, you pay</h3><p data-i18n="how.3p">We check your area and start date, then send a UPI link or QR.</p></li>
-      <li><b>4</b><h3 data-i18n="how.4h">Fresh at your door</h3><p data-i18n="how.4p">Your meals arrive at your chosen time, Monday to Saturday.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section class="menu" id="menu">
-  <div class="wrap">
-    <div class="head"><span class="eyebrow" data-i18n="menu.eyebrow">Menu &amp; packages</span><h2 data-i18n="menu.h">Pick your box</h2><p class="sub" data-i18n="menu.sub">Prices are for the whole package. Same price for veg and with egg.</p></div>
-    <div class="tabs" id="planTabs" role="tablist" aria-label="Package"></div>
+    <p class="sub menu-note"><span data-i18n="menu.sub">Prices are for the whole package. Same price for veg and with egg.</span>
+      <button type="button" class="link js-help" data-i18n="menu.howlink">How does ordering work?</button></p>
     <div class="grid" id="menuGrid"></div>
   </div>
 </section>
@@ -249,538 +205,28 @@
   </div>
 </aside>
 
+<!-- How it works: opened by the ? button in the header and the link above the menu.
+     A bottom sheet on phones, a centred card on bigger screens. -->
+<dialog class="sheet" id="help" aria-labelledby="helpTitle">
+  <div class="sheet-head">
+    <h2 id="helpTitle" data-i18n="how.h">How it works</h2>
+    <button type="button" class="icon-btn" id="helpClose" data-i18n-aria="cart.close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+  <ol class="steps">
+    <li><b>1</b><div><h3 data-i18n="how.1h">Choose</h3><p data-i18n="how.1p">Pick your meals and a monthly, weekly or trial package.</p></div></li>
+    <li><b>2</b><div><h3 data-i18n="how.2h">Order on WhatsApp</h3><p data-i18n="how.2p">Fill in your address and start date. WhatsApp opens with your order ready — just press Send.</p></div></li>
+    <li><b>3</b><div><h3 data-i18n="how.3h">We confirm, you pay</h3><p data-i18n="how.3p">We check your area and start date, then send a UPI link or QR.</p></div></li>
+    <li><b>4</b><div><h3 data-i18n="how.4h">Fresh at your door</h3><p data-i18n="how.4p">Your meals arrive at your chosen time, Monday to Saturday.</p></div></li>
+  </ol>
+  <div class="sheet-foot">
+    <button type="button" class="btn btn-primary block" id="helpGo" data-i18n="help.go">Got it — show the menu</button>
+    <a class="btn btn-line block js-wa" target="_blank" rel="noopener" data-i18n="help.ask">Ask us on WhatsApp</a>
+  </div>
+</dialog>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/site.js" defer></script>
-<script src="assets/js/cursor.js" defer></script>
-<script type="module" onerror="document.getElementById('reveal').classList.add('no-webgl')">
-// 3D scroll intro: a Fitzobit meal bowl on a wooden board. Scrolling turns it, lifts the ingredients out to show
-// what is inside, switches veg / with egg, then looks down into the bowl and fades into the page.
-// The bowl tilts towards the mouse. Everything is modelled and textured in code (no model or image files).
-// Kept inline so it also runs when index.html is double-clicked.
-import * as THREE from 'three';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-
-const section = document.getElementById('reveal');
-if (section) init(section);
-
-function init(section) {
-  const pin = section.querySelector('.reveal-pin');
-  const canvas = section.querySelector('canvas');
-  const title = section.querySelector('.reveal-title');
-  const hint = section.querySelector('.reveal-hint');
-  const fade = section.querySelector('.reveal-fade');
-  const caps = [...section.querySelectorAll('.cap')];
-  const tags = [...section.querySelectorAll('.reveal-tags .tag')];
-  const rail = section.querySelector('.rail i');
-  const stepNo = section.querySelector('.reveal-step');
-  const prefBtns = [...section.querySelectorAll('.reveal-pref button')];
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // phones and tablets: smaller textures, softer shadows and fewer small pieces (looks almost the same on a small screen)
-  const lite = matchMedia('(max-width: 760px), (pointer: coarse)').matches;
-
-  let renderer;
-  try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-  } catch (e) { section.classList.add('no-webgl'); return; }
-  renderer.setPixelRatio(Math.min(devicePixelRatio, lite ? 1.5 : 1.75));
-  renderer.toneMapping = THREE.NeutralToneMapping;
-  renderer.toneMappingExposure = 1.02;
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  const maxAniso = Math.min(8, renderer.capabilities.getMaxAnisotropy());
-
-  const scene = new THREE.Scene();
-  const pmrem = new THREE.PMREMGenerator(renderer);
-  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-  scene.environmentIntensity = 0.55;
-  const camera = new THREE.PerspectiveCamera(30, 1, 0.05, 100);
-
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xe3e8d6, 0.85));
-  const key = new THREE.DirectionalLight(0xfff0d9, 2.9);
-  key.position.set(2.2, 6.5, 3.2); key.castShadow = true;
-  key.shadow.mapSize.set(lite ? 1024 : 2048, lite ? 1024 : 2048); key.shadow.radius = 3; key.shadow.bias = -0.0003; key.shadow.normalBias = 0.015;
-  Object.assign(key.shadow.camera, { left: -3.2, right: 3.2, top: 3.2, bottom: -3.2, near: 1, far: 16 });
-  const fill = new THREE.DirectionalLight(0xe8f0ff, 0.55); fill.position.set(-4, 2.5, 2.5);
-  const rim = new THREE.DirectionalLight(0xffffff, 0.9); rim.position.set(-1, 3, -5);
-  scene.add(key, fill, rim);
-
-  // the same "random" layout on every visit
-  let seed = 20261111;
-  const rand = () => { seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
-  const rnd = (a, b) => a + rand() * (b - a);
-  const rad = d => d * Math.PI / 180;
-  const noise3 = (x, y, z) => Math.sin(x * 12.9 + y * 4.1) * Math.cos(y * 17.3 - z * 3.7) * Math.sin(z * 11.1 + x * 5.3);
-
-  // ---------- textures drawn on canvases ----------
-  function tex(w, h, draw, color = true) {
-    const c = document.createElement('canvas'); c.width = w; c.height = h;
-    draw(c.getContext('2d'), w, h);
-    const t = new THREE.CanvasTexture(c); if (color) t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = maxAniso; return t;
-  }
-  function dots(g, w, h, n, colors, rMin, rMax, alpha) {
-    for (let i = 0; i < n; i++) {
-      g.globalAlpha = alpha * rnd(0.4, 1); g.fillStyle = colors[i % colors.length];
-      g.beginPath(); g.ellipse(rnd(0, w), rnd(0, h), rnd(rMin, rMax), rnd(rMin, rMax), rnd(0, 3), 0, 6.283); g.fill();
-    }
-    g.globalAlpha = 1;
-  }
-  const disc = (g, x, y, r, fill) => { g.fillStyle = fill; g.beginPath(); g.arc(x, y, r, 0, 6.283); g.fill(); };
-
-  const TX = lite ? 512 : 1024;   // size of the big canvas textures
-  const ceramicTex = tex(TX, TX / 4, (g, w, h) => {
-    g.fillStyle = '#ffffff'; g.fillRect(0, 0, w, h);
-    dots(g, w, h, 300, ['#f3ece0'], 3, 9, 0.6);
-    dots(g, w, h, lite ? 1200 : 2400, ['#6b5a48', '#8a7a66', '#3e352c'], 0.35, 1.1, 0.4);
-  });
-  const bedTex = tex(TX, TX, (g, w, h) => {
-    g.fillStyle = '#3e6c26'; g.fillRect(0, 0, w, h);
-    dots(g, w, h, 600, ['#2c561b', '#4f8530', '#24461a'], 4, 14, 0.5);
-    // a mat of small mixed-green leaves with pale ribs, so gaps between toppings look like salad
-    const cols = ['#6aa83d', '#8fc556', '#4a8a2c', '#a9d466', '#3a6f24', '#7db648', '#c3e07f'];
-    for (let i = 0; i < 1100; i++) {
-      const x = rnd(0, w), y = rnd(0, h), a = rnd(0, 6.28), L = rnd(36, 80) * w / 1024, W = L * rnd(0.35, 0.55);
-      g.save(); g.translate(x, y); g.rotate(a);
-      g.fillStyle = cols[i % cols.length]; g.globalAlpha = 0.95;
-      g.beginPath(); g.moveTo(-L / 2, 0); g.quadraticCurveTo(0, -W, L / 2, 0); g.quadraticCurveTo(0, W, -L / 2, 0); g.fill();
-      g.strokeStyle = 'rgba(230,245,200,.55)'; g.lineWidth = 1.2; g.beginPath(); g.moveTo(-L / 2, 0); g.lineTo(L / 2.3, 0); g.stroke();
-      g.restore();
-    }
-    g.globalAlpha = 1;
-  });
-  const woodTex = tex(TX, TX, (g, w, h) => {
-    g.fillStyle = '#d2a571'; g.fillRect(0, 0, w, h);
-    for (let y = 0; y < h; y += rnd(3, 9) * w / 1024) {
-      g.strokeStyle = rand() < 0.5 ? '#b5834f' : '#c08f5b'; g.globalAlpha = rnd(0.15, 0.45); g.lineWidth = rnd(1, 3);
-      g.beginPath(); const a = rnd(2, 7), f = rnd(0.002, 0.006), ph = rnd(0, 6);
-      for (let x = 0; x <= w; x += 16) g.lineTo(x, y + Math.sin(x * f + ph) * a); g.stroke();
-    }
-    g.globalAlpha = 1; dots(g, w, h, 500, ['#a8763f', '#e0bb88'], 1, 3, 0.2);
-  });
-  const cucTex = tex(256, 256, (g, w) => {
-    const c = w / 2;
-    disc(g, c, c, 128, '#2d5a1d'); disc(g, c, c, 121, '#86b252');
-    const gr = g.createRadialGradient(c, c, 10, c, c, 116); gr.addColorStop(0, '#f0f5d6'); gr.addColorStop(1, '#cfe09e');
-    disc(g, c, c, 116, gr);
-    for (let k = 0; k < 3; k++) {
-      const a = k * 2.094 + 0.3, x = c + Math.cos(a) * 34, y = c + Math.sin(a) * 34;
-      g.fillStyle = '#e9f1cf'; g.beginPath(); g.ellipse(x, y, 36, 22, a, 0, 6.283); g.fill();
-      for (let s = 0; s < 6; s++) { g.fillStyle = '#fbfbe9'; g.beginPath(); g.ellipse(x + Math.cos(a) * (s - 2.5) * 6, y + Math.sin(a) * (s - 2.5) * 6, 5, 2.6, a + 1.57, 0, 6.283); g.fill(); }
-    }
-  });
-  const yolkTex = tex(128, 128, (g, w) => {
-    const gr = g.createRadialGradient(w / 2, w / 2, 4, w / 2, w / 2, w / 2);
-    gr.addColorStop(0, '#e9760c'); gr.addColorStop(0.55, '#f39a17'); gr.addColorStop(1, '#f8c445');
-    g.fillStyle = gr; g.fillRect(0, 0, w, w);
-  });
-  const tomCutTex = tex(256, 256, (g, w) => {
-    const c = w / 2;
-    disc(g, c, c, 128, '#c51f18'); disc(g, c, c, 112, '#e2412e');
-    for (let k = 0; k < 3; k++) {
-      const a = k * 2.094 + 0.5;
-      g.fillStyle = '#f0735a'; g.beginPath(); g.ellipse(c + Math.cos(a) * 52, c + Math.sin(a) * 52, 44, 30, a, 0, 6.283); g.fill();
-      for (let s = 0; s < 7; s++) { g.fillStyle = '#f4d68a'; g.beginPath(); g.ellipse(c + Math.cos(a) * rnd(35, 70), c + Math.sin(a) * rnd(35, 70), 5, 3, rnd(0, 3), 0, 6.283); g.fill(); }
-    }
-    disc(g, c, c, 22, '#f2a08b');
-  });
-  // leaves: a leaf-shaped picture with veins (transparent around it)
-  function leafTex(o) {
-    return tex(256, 128, (g, w, h) => {
-      const edge = (t, ph) => Math.sin(Math.PI * Math.pow(t, 0.7)) * h * 0.47 * (1 - o.wobble * 0.35 + o.wobble * 0.35 * Math.sin(t * 46 + ph));
-      g.beginPath();
-      for (let i = 0; i <= 80; i++) { const t = i / 80; g.lineTo(t * w, h / 2 - edge(t, 0)); }
-      for (let i = 80; i >= 0; i--) { const t = i / 80; g.lineTo(t * w, h / 2 + edge(t, 2)); }
-      g.closePath(); g.save(); g.clip();
-      const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, o.edge); gr.addColorStop(0.5, o.base); gr.addColorStop(1, o.edge);
-      g.fillStyle = gr; g.fillRect(0, 0, w, h);
-      dots(g, w, h, 140, [o.edge, o.base], 2, 7, 0.3);
-      g.strokeStyle = o.vein; g.lineWidth = 1.4; g.globalAlpha = 0.6;
-      for (let x = 14; x < w - 12; x += 15) for (const s of [-1, 1]) { g.beginPath(); g.moveTo(x, h / 2); g.quadraticCurveTo(x + 14, h / 2 + s * h * 0.2, x + 28, h / 2 + s * h * 0.5); g.stroke(); }
-      g.globalAlpha = 1; g.strokeStyle = o.rib; g.lineWidth = 5; g.beginPath(); g.moveTo(0, h / 2); g.lineTo(w * 0.93, h / 2); g.stroke();
-      g.restore();
-    });
-  }
-  const LEAVES = {
-    lettuce: { tex: leafTex({ base: '#9fcf5c', edge: '#c6e27a', rib: '#eef7cf', vein: '#e3f0b9', wobble: 0.7 }), rough: 0.55, ruffle: 0.03 },
-    romaine: { tex: leafTex({ base: '#4f8f2e', edge: '#6ba83f', rib: '#d3e8a6', vein: '#a9d07a', wobble: 0.18 }), rough: 0.5, ruffle: 0.012 },
-    spinach: { tex: leafTex({ base: '#2f6120', edge: '#3b7328', rib: '#86b75c', vein: '#5d903d', wobble: 0.05 }), rough: 0.32, ruffle: 0.004 },
-    radicchio: { tex: leafTex({ base: '#7c2446', edge: '#561331', rib: '#f4ebf0', vein: '#ead7e0', wobble: 0.45 }), rough: 0.45, ruffle: 0.02 },
-  };
-  const leafMat = {};
-  for (const k in LEAVES) leafMat[k] = new THREE.MeshStandardMaterial({ map: LEAVES[k].tex, alphaTest: 0.5, side: THREE.DoubleSide, roughness: LEAVES[k].rough });
-  function leafGeo(len, wid, ruffle, curl, arch = 0.06) {
-    const g = new THREE.PlaneGeometry(len, wid * 2, 22, 8);
-    g.translate(len / 2, 0, 0); g.rotateX(-Math.PI / 2);          // lies flat, stem at the origin, pointing along +x
-    const p = g.attributes.position;
-    for (let i = 0; i < p.count; i++) {
-      const x = p.getX(i), z = p.getZ(i), e = Math.abs(z) / wid;
-      p.setY(i, curl * e * e + ruffle * Math.sin(x * 70 + z * 30) * e * e + arch * Math.sin(Math.PI * x / len));
-    }
-    g.computeVertexNormals(); return g;
-  }
-  const leafGeos = [leafGeo(0.42, 0.13, 1, 0.08), leafGeo(0.36, 0.1, 1, 0.06), leafGeo(0.5, 0.11, 1, 0.1)];
-  // ruffle differs per leaf type, so bake one set per type
-  const leafSet = {};
-  for (const k in LEAVES) leafSet[k] = [leafGeo(0.42, 0.13, LEAVES[k].ruffle, 0.08), leafGeo(0.34, 0.1, LEAVES[k].ruffle, 0.06), leafGeo(0.5, 0.11, LEAVES[k].ruffle, 0.1)];
-  leafGeos.forEach(g => g.dispose());
-  const flatSet = { lettuce: [leafGeo(0.42, 0.14, 0.02, 0.035, 0.015), leafGeo(0.36, 0.12, 0.02, 0.03, 0.012)],
-    romaine: [leafGeo(0.46, 0.11, 0.01, 0.035, 0.015), leafGeo(0.38, 0.1, 0.01, 0.03, 0.012)] };
-
-  // ---------- board, bowl ----------
-  const stage = new THREE.Group();
-  const woodSide = new THREE.MeshStandardMaterial({ color: '#a9774a', roughness: 0.7 });
-  const woodTop = new THREE.MeshStandardMaterial({ map: woodTex, roughness: 0.55 });
-  const board = new THREE.Mesh(new THREE.CylinderGeometry(2.15, 2.12, 0.12, 96), [woodSide, woodTop, woodSide]);
-  board.position.y = -0.06; board.rotation.y = 0.4; board.castShadow = true; board.receiveShadow = true;
-  stage.add(board);
-
-  const prof = [[0.001,0],[0.5,0],[0.55,0.025],[0.57,0.08],[0.64,0.12],[0.93,0.29],[1.2,0.52],[1.36,0.74],[1.43,0.87],[1.42,0.91],
-    [1.37,0.91],[1.33,0.86],[1.27,0.73],[1.12,0.52],[0.86,0.33],[0.5,0.21],[0.001,0.19]];
-  const curve = new THREE.CatmullRomCurve3(prof.map(([r, y]) => new THREE.Vector3(r, y, 0)), false, 'centripetal');
-  const pts = curve.getPoints(120).map(v => new THREE.Vector2(Math.max(v.x, 0.001), v.y));
-  const bowlGeo = new THREE.LatheGeometry(pts, 128);
-  let jRim = 0; pts.forEach((v, j) => { if (v.x > pts[jRim].x) jRim = j; });
-  const RF = 1.28, Y0 = 0.74;
-  const cCream = new THREE.Color('#f7f2e8'), cGreen = new THREE.Color('#6f8a4f'), cOlive = new THREE.Color('#313b29'), cOrange = new THREE.Color('#cf4604');
-  const colors = new Float32Array(bowlGeo.attributes.position.count * 3), tc = new THREE.Color();
-  for (let i = 0; i < bowlGeo.attributes.position.count; i++) {
-    const j = i % pts.length, y = pts[j].y, outer = j < jRim;
-    let c = cCream;
-    if (Math.abs(j - jRim) <= 4 && y > 0.84) c = cOlive;
-    else if (outer && y > 0.55 && y < 0.66) c = cGreen;
-    else if (outer && y > 0.485 && y < 0.515) c = cOrange;
-    tc.copy(c);
-    if (!outer && y > Y0 - 0.05 && y < Y0 + 0.16) tc.multiplyScalar(0.72 + 0.28 * Math.min(1, (y - Y0 + 0.05) / 0.21));   // darker where food meets the wall
-    if (outer && y < 0.1) tc.multiplyScalar(0.85);
-    colors.set([tc.r, tc.g, tc.b], i * 3);
-  }
-  bowlGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-  const bowlMesh = new THREE.Mesh(bowlGeo, new THREE.MeshPhysicalMaterial({ map: ceramicTex, vertexColors: true, roughness: 0.28, clearcoat: 0.8, clearcoatRoughness: 0.15 }));
-  bowlMesh.castShadow = true; bowlMesh.receiveShadow = true;
-  stage.add(bowlMesh);
-
-  // ---------- food bed (leafy, darker towards the wall) ----------
-  const hBase = r => Y0 + 0.17 * (1 - Math.min(1, (r / RF) ** 2));
-  const bedPts = [];
-  for (let i = 0; i <= 24; i++) { const r = RF * (1 - i / 24); bedPts.push(new THREE.Vector2(Math.max(r, 0.001), hBase(r))); }
-  const bedGeo = new THREE.LatheGeometry(bedPts, 96);
-  { const n = bedGeo.attributes.position.count, col = new Float32Array(n * 3), p = bedGeo.attributes.position;
-    const uv = bedGeo.attributes.uv;
-    for (let i = 0; i < n; i++) { const r = Math.hypot(p.getX(i), p.getZ(i)) / RF, s = 1 - 0.45 * Math.pow(r, 6); col.set([s, s, s], i * 3);
-      uv.setXY(i, p.getX(i) / (2 * RF) + 0.5, p.getZ(i) / (2 * RF) + 0.5); }   // top-down mapping so the leaf picture is not stretched
-    bedGeo.setAttribute('color', new THREE.BufferAttribute(col, 3)); }
-  const bed = new THREE.Mesh(bedGeo, new THREE.MeshStandardMaterial({ map: bedTex, vertexColors: true, roughness: 0.85 }));
-  bed.receiveShadow = true; stage.add(bed);
-
-  const at = (r, deg, lift = 0) => new THREE.Vector3(r * Math.sin(rad(deg)), hBase(r) + lift, r * Math.cos(rad(deg)));
-
-  // rice / millet heap at the back
-  const GRAINS = lite ? 800 : 1500;
-  const grains = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 1), new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: 0.45 }), GRAINS);
-  grains.receiveShadow = true; grains.castShadow = true;
-  { const m = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), s = new THREE.Vector3(), c = new THREE.Color();
-    for (let i = 0; i < GRAINS; i++) {
-      const deg = rnd(122, 238), r = Math.sqrt(rand()) * 1.17;
-      const w = Math.sin(Math.PI * (deg - 122) / 116) * Math.min(1, r / 0.35);
-      e.set(rnd(-0.4, 0.4), rnd(0, Math.PI), rnd(-0.4, 0.4)); q.setFromEuler(e);
-      s.set(0.036, 0.012, 0.0125);
-      m.compose(at(r, deg, 0.008 + rand() * 0.11 * w), q, s); grains.setMatrixAt(i, m);
-      const brown = rand() < 0.12;
-      grains.setColorAt(i, c.set(brown ? '#c79a62' : '#fbf6e9').offsetHSL(0, 0, rnd(-0.05, 0.02)));
-    }
-  }
-  stage.add(grains);
-
-  // ---------- ingredients ----------
-  const pieces = [];
-  function add(obj, pos, rot, kind = '') {
-    obj.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
-    const dir = new THREE.Vector3(pos.x, 0, pos.z); if (dir.lengthSq() < 0.01) dir.set(rnd(-1, 1), 0, rnd(-1, 1)); dir.normalize();
-    const out = dir.multiplyScalar(rnd(0.5, 1.15)).add(new THREE.Vector3(0, rnd(0.55, 1.35), 0));
-    const p = { obj, pos: pos.clone(), rot: rot.clone(), out, spin: new THREE.Vector3(rnd(-2, 2), rnd(-2, 2), rnd(-2, 2)),
-      delay: rand() * 0.35, kind, phase: rand() * 6.28 };
-    obj.position.copy(pos); obj.rotation.copy(rot); obj.userData.s = obj.scale.x;
-    stage.add(obj); pieces.push(p); return p;
-  }
-  const leafMesh = (type) => { const m = new THREE.Mesh(leafSet[type][Math.floor(rand() * 3)], leafMat[type]); const s = rnd(1.0, 1.45); m.scale.set(s, s, s); return m; };
-
-  // lettuce bed under the toppings (outside the grain heap), then spinach / romaine / radicchio on the greens side
-  for (let i = 0; i < (lite ? 26 : 40); i++) { const type = i % 5 === 0 ? 'romaine' : 'lettuce', m = new THREE.Mesh(flatSet[type][i % 2], leafMat[type]), sc = rnd(0.95, 1.3); m.scale.set(sc, sc, sc);
-    const r = rnd(0.5, 1.08), d = rnd(-118, 120);
-    add(m, at(r, d, 0.012), new THREE.Euler(0, rad(d) + Math.PI / 2 + rnd(-0.6, 0.6), Math.atan(0.21 * r) + 0.04), 'leaf'); }
-  const leaves = [];
-  ['spinach', 'spinach', 'radicchio', 'spinach', 'romaine', 'spinach', 'radicchio', 'spinach', 'romaine', 'spinach', 'radicchio', 'spinach']
-    .forEach((t, i) => leaves.push(add(leafMesh(t), at(rnd(0.35, 1.0), rnd(240, 300), 0.03 + i * 0.006), new THREE.Euler(rnd(-0.2, 0.2), rnd(0, 6.28), rnd(-0.2, 0.2)), 'leaf')));
-
-  // purple cabbage shreds (stay on the bed)
-  { const n = lite ? 35 : 60, shreds = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.008, 0.008, 1, 5), new THREE.MeshStandardMaterial({ color: '#6c2a78', roughness: 0.5 }), n);
-    const m = new THREE.Matrix4(), q = new THREE.Quaternion(), s = new THREE.Vector3();
-    for (let i = 0; i < n; i++) { q.setFromEuler(new THREE.Euler(Math.PI / 2 + rnd(-0.2, 0.2), rnd(0, 6.28), 0, 'YXZ')); s.set(1, rnd(0.1, 0.22), 1);
-      m.compose(at(rnd(0.45, 1.0), rnd(-40, 5), 0.05 + rnd(0, 0.03)), q, s); shreds.setMatrixAt(i, m); }
-    shreds.castShadow = true; stage.add(shreds); }
-
-  // chickpeas: lumpy, slightly different sizes and colours
-  const peaGeos = [0, 1, 2].map(k => { const g = new THREE.IcosahedronGeometry(0.05, 2), p = g.attributes.position, v = new THREE.Vector3();
-    for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const n = v.clone().normalize(); v.multiplyScalar(1 + 0.09 * noise3(n.x + k, n.y, n.z) + (n.y > 0.85 ? 0.08 : 0)); p.setXYZ(i, v.x, v.y * 0.9, v.z); }
-    g.computeVertexNormals(); return g; });
-  const peaMats = ['#d9b06a', '#cfa45c', '#e0bb7a'].map(c => new THREE.MeshStandardMaterial({ color: c, roughness: 0.7 }));
-  for (let i = 0; i < 28; i++) add(new THREE.Mesh(peaGeos[i % 3], peaMats[i % 3]), at(rnd(0.5, 1.05), rnd(300, 352), 0.05 + (i % 3) * 0.03), new THREE.Euler(rnd(0, 3), rnd(0, 3), rnd(0, 3)), 'pea');
-
-  // carrot julienne
-  const carrotGeos = [0.32, 0.4, 0.46].map(l => new THREE.CylinderGeometry(0.022, 0.02, l, 6));
-  const carrotMats = ['#ec7a1c', '#f08a2c'].map(c => new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.4, clearcoat: 0.5, clearcoatRoughness: 0.3 }));
-  for (let i = 0; i < 18; i++) add(new THREE.Mesh(carrotGeos[i % 3], carrotMats[i % 2]), at(rnd(0.5, 0.98), rnd(6, 60), 0.05 + (i % 4) * 0.035),
-    new THREE.Euler(Math.PI / 2 + rnd(-0.15, 0.15), 0, rad(rnd(-35, 35)) + Math.PI / 2), 'carrot');
-
-  // cucumber slices
-  const cucGeo = new THREE.CylinderGeometry(0.1, 0.1, 0.03, 32);
-  const cucMats = [new THREE.MeshStandardMaterial({ color: '#2e5a1e', roughness: 0.4 }),
-    new THREE.MeshPhysicalMaterial({ map: cucTex, roughness: 0.3, clearcoat: 0.6, clearcoatRoughness: 0.2 }), new THREE.MeshStandardMaterial({ map: cucTex, roughness: 0.4 })];
-  for (let i = 0; i < 10; i++) add(new THREE.Mesh(cucGeo, cucMats), at(0.5 + (i % 4) * 0.15, 66 + Math.floor(i / 4) * 24 + (i % 4) * 4, 0.04 + (i % 2) * 0.02),
-    new THREE.Euler(rnd(-0.35, 0.35), rnd(0, 6), rnd(-0.35, 0.35)), 'cucumber');
-
-  // cherry tomatoes: slightly lobed, glossy, with a green calyx; plus two halves showing the inside
-  const tomGeo = new THREE.SphereGeometry(0.115, 32, 20);
-  { const p = tomGeo.attributes.position, v = new THREE.Vector3();
-    for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); const a = Math.atan2(v.z, v.x); v.x *= 1 + 0.025 * Math.cos(a * 4); v.z *= 1 + 0.025 * Math.cos(a * 4); v.y *= 0.9; p.setXYZ(i, v.x, v.y, v.z); }
-    tomGeo.computeVertexNormals(); }
-  const tomMats = ['#d4241b', '#c81d16', '#dc3322'].map(c => new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.08 }));
-  const calyxGeo = (() => { const parts = [];
-    for (let k = 0; k < 5; k++) { const s = new THREE.ConeGeometry(0.014, 0.075, 4); s.rotateZ(-Math.PI / 2); s.translate(0.04, 0, 0); s.rotateZ(-0.35); s.rotateY(k * 1.2566); s.translate(0, 0.1, 0); parts.push(s); }
-    const stem = new THREE.CylinderGeometry(0.006, 0.008, 0.05, 6); stem.translate(0, 0.125, 0); parts.push(stem);
-    return mergeGeometries(parts.map(g => g.toNonIndexed())); })();
-  const calyxMat = new THREE.MeshStandardMaterial({ color: '#4c7a2c', roughness: 0.6 });
-  let tomN = 0;
-  function tomato() { const g = new THREE.Group(); g.add(new THREE.Mesh(tomGeo, tomMats[tomN++ % 3]), new THREE.Mesh(calyxGeo, calyxMat)); return g; }
-  const halfOut = new THREE.SphereGeometry(0.115, 32, 12, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
-  const halfCut = new THREE.CircleGeometry(0.115, 40); halfCut.rotateX(-Math.PI / 2);
-  const cutMat = new THREE.MeshPhysicalMaterial({ map: tomCutTex, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.1 });
-  function tomatoHalf() { const g = new THREE.Group(); const o = new THREE.Mesh(halfOut, tomMats[1]); o.scale.y = 0.9; g.add(o, new THREE.Mesh(halfCut, cutMat)); return g; }
-  [[0.92, 0], [0.85, 62], [0.9, 118], [0.95, 240], [0.95, 298]].forEach(([r, d]) => add(tomato(), at(r, d, 0.09), new THREE.Euler(rnd(-0.4, 0.4), rnd(0, 6), rnd(-0.4, 0.4)), 'tomato'));
-  [[0.7, 330], [0.78, 205]].forEach(([r, d]) => add(tomatoHalf(), at(r, d, 0.08), new THREE.Euler(rnd(-0.15, 0.15), rnd(0, 6), rnd(-0.15, 0.15)), 'tomato'));
-
-  // broccoli florets: branching stems with bumpy heads (merged so each floret is two draws)
-  const stemMat = new THREE.MeshStandardMaterial({ color: '#a9c27c', roughness: 0.6 });
-  const headMat = new THREE.MeshStandardMaterial({ color: '#33642a', roughness: 0.92 });
-  function broccoliGeos() {
-    const stems = [], heads = [], v = new THREE.Vector3();
-    const main = new THREE.CylinderGeometry(0.03, 0.045, 0.14, 8); main.translate(0, 0.07, 0); stems.push(main);
-    for (let b = 0; b < 4; b++) {
-      const a = b * 1.57 + rnd(-0.3, 0.3), tilt = 0.5;
-      const br = new THREE.CylinderGeometry(0.014, 0.02, 0.1, 6); br.translate(0, 0.05, 0); br.rotateZ(tilt); br.rotateY(a); br.translate(0, 0.12, 0); stems.push(br);
-      const cx = Math.cos(-a) * 0.06, cz = Math.sin(-a) * 0.06;
-      for (let k = 0; k < 7; k++) {
-        const bud = new THREE.IcosahedronGeometry(rnd(0.032, 0.045), 1), p = bud.attributes.position;
-        for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i); v.multiplyScalar(1 + 0.18 * noise3(v.x * 40 + k, v.y * 40, v.z * 40 + b)); p.setXYZ(i, v.x, v.y, v.z); }
-        const kk = k / 7 * 6.28;
-        bud.translate(cx * 1.4 + Math.cos(kk) * (k ? 0.04 : 0), 0.205 + (k ? 0 : 0.02) + rnd(-0.01, 0.01), cz * 1.4 + Math.sin(kk) * (k ? 0.04 : 0));
-        heads.push(bud.toNonIndexed());
-      }
-    }
-    const h = mergeGeometries(heads); h.computeVertexNormals();
-    return [mergeGeometries(stems.map(g => g.toNonIndexed())), h];
-  }
-  const brocGeos = [broccoliGeos(), broccoliGeos()];
-  let brocN = 0;
-  function broccoli() { const [s, h] = brocGeos[brocN++ % 2], g = new THREE.Group(); g.add(new THREE.Mesh(s, stemMat), new THREE.Mesh(h, headMat)); g.scale.setScalar(1.15); return g; }
-  const broc = [[0.62, 205], [0.55, 150]].map(([r, d]) => add(broccoli(), at(r, d, 0.0), new THREE.Euler(rnd(-0.25, 0.25), rnd(0, 6), rnd(-0.25, 0.25)), 'broccoli'));
-
-  // boiled egg halves (with egg) and a veg topping in their place (veg)
-  const whiteMat = new THREE.MeshPhysicalMaterial({ color: '#fffaf1', roughness: 0.3, clearcoat: 0.5, clearcoatRoughness: 0.25, sheen: 0.4, sheenColor: new THREE.Color('#ffffff') });
-  const yolkMat = new THREE.MeshPhysicalMaterial({ map: yolkTex, roughness: 0.45, clearcoat: 0.6, clearcoatRoughness: 0.3 });
-  const eggOut = new THREE.SphereGeometry(0.17, 40, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
-  const eggCut = new THREE.CircleGeometry(0.17, 48); eggCut.rotateX(-Math.PI / 2);
-  const yolkGeo = new THREE.SphereGeometry(0.088, 32, 12, 0, Math.PI * 2, 0, Math.PI / 2);
-  function eggHalf() {
-    const g = new THREE.Group();
-    const w = new THREE.Mesh(eggOut, whiteMat); w.scale.set(1.35, 0.72, 1);
-    const cut = new THREE.Mesh(eggCut, whiteMat); cut.scale.set(1.35, 1, 1);
-    const y = new THREE.Mesh(yolkGeo, yolkMat); y.scale.set(1.15, 0.42, 1.1); y.position.x = 0.02;
-    g.add(w, cut, y); return g;
-  }
-  const eggs = [[0.12, 200, -20], [0.3, 40, 35]].map(([r, d, yaw]) => add(eggHalf(), at(r, d, 0.11), new THREE.Euler(rnd(-0.1, 0.1), rad(yaw), rnd(-0.1, 0.1)), 'egg'));
-  const vegs = [
-    add(broccoli(), at(0.12, 160, 0.0), new THREE.Euler(0.15, 1, 0.1), 'veg'),
-    add(tomato(), at(0.3, 30, 0.09), new THREE.Euler(0.2, 2, 0.1), 'veg'),
-    add(tomatoHalf(), at(0.28, 75, 0.08), new THREE.Euler(-0.1, 4, 0.1), 'veg'),
-    add(broccoli(), at(0.32, 330, 0.0), new THREE.Euler(-0.15, 3, -0.1), 'veg'),
-  ];
-
-  // sesame seeds and herb flakes on top
-  { const n = lite ? 90 : 160, seeds = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 6, 4), new THREE.MeshStandardMaterial({ color: '#f1e4c4', roughness: 0.5 }), n);
-    const m = new THREE.Matrix4(), q = new THREE.Quaternion(), s = new THREE.Vector3(0.013, 0.005, 0.008);
-    for (let i = 0; i < n; i++) { q.setFromEuler(new THREE.Euler(rnd(-0.3, 0.3), rnd(0, 6), rnd(-0.3, 0.3))); m.compose(at(Math.sqrt(rand()) * 1.15, rnd(0, 360), rnd(0.03, 0.2)), q, s); seeds.setMatrixAt(i, m); }
-    stage.add(seeds); }
-  { const n = lite ? 40 : 70, herbs = new THREE.InstancedMesh(new THREE.PlaneGeometry(0.03, 0.022), new THREE.MeshStandardMaterial({ color: '#2f5e22', side: THREE.DoubleSide }), n);
-    const m = new THREE.Matrix4(), q = new THREE.Quaternion(), s = new THREE.Vector3(1, 1, 1);
-    for (let i = 0; i < n; i++) { q.setFromEuler(new THREE.Euler(-Math.PI / 2 + rnd(-0.4, 0.4), rnd(0, 6), rnd(-0.4, 0.4))); m.compose(at(Math.sqrt(rand()) * 1.1, rnd(0, 360), rnd(0.13, 0.22)), q, s); herbs.setMatrixAt(i, m); }
-    stage.add(herbs); }
-
-  // a fork on the board (the fork from the logo)
-  { const metal = new THREE.MeshStandardMaterial({ color: '#dfe3e6', metalness: 1, roughness: 0.2 });
-    const parts = [];
-    const handle = new THREE.CapsuleGeometry(0.05, 0.78, 6, 16); handle.rotateZ(Math.PI / 2); handle.scale(1, 0.3, 1); handle.translate(-0.5, 0, 0); parts.push(handle);
-    const neck = new THREE.BoxGeometry(0.26, 0.026, 0.06); neck.translate(0.0, 0, 0); parts.push(neck);
-    const head = new THREE.BoxGeometry(0.12, 0.026, 0.2); head.translate(0.18, 0, 0); parts.push(head);
-    for (let k = 0; k < 4; k++) { const t = new THREE.CapsuleGeometry(0.014, 0.26, 4, 8); t.rotateZ(Math.PI / 2); t.scale(1, 0.9, 1); t.translate(0.36, 0, -0.075 + k * 0.05); parts.push(t); }
-    const fork = new THREE.Mesh(mergeGeometries(parts.map(g => g.toNonIndexed())), metal);
-    fork.position.set(0.25, 0.012, 1.78); fork.rotation.set(0, 0.12, 0); fork.castShadow = true; fork.receiveShadow = true;
-    stage.add(fork); }
-
-  const BY = -0.55;
-  stage.position.y = BY;
-  scene.add(stage);
-
-  // table shadow + soft contact shadow under the board
-  const groundY = BY - 0.121;
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(14, 14), new THREE.ShadowMaterial({ opacity: 0.14 }));
-  ground.rotation.x = -Math.PI / 2; ground.position.y = groundY; ground.receiveShadow = true; scene.add(ground);
-  const blobTex = tex(128, 128, (g) => { const r = g.createRadialGradient(64, 64, 0, 64, 64, 64); r.addColorStop(0, 'rgba(40,40,30,.4)'); r.addColorStop(0.6, 'rgba(40,40,30,.15)'); r.addColorStop(1, 'rgba(40,40,30,0)'); g.fillStyle = r; g.fillRect(0, 0, 128, 128); }, false);
-  const blob = new THREE.Mesh(new THREE.PlaneGeometry(5.4, 5.4), new THREE.MeshBasicMaterial({ map: blobTex, transparent: true, depthWrite: false }));
-  blob.rotation.x = -Math.PI / 2; blob.position.y = groundY + 0.002; scene.add(blob);
-
-  // floating leaves around the scene
-  const FLOAT = lite ? 14 : 26;
-  const floaters = new THREE.InstancedMesh(leafSet.romaine[1], new THREE.MeshStandardMaterial({ map: LEAVES.lettuce.tex, alphaTest: 0.5, side: THREE.DoubleSide, roughness: 0.5, color: '#e9f5d5' }), FLOAT);
-  const fl = Array.from({ length: FLOAT }, () => ({
-    p: new THREE.Vector3(rnd(-6.5, 6.5), rnd(-1.6, 3.4), rnd(-6, 0.5)), r: new THREE.Euler(rnd(0, 6), rnd(0, 6), rnd(0, 6)),
-    v: new THREE.Vector3(rnd(-0.6, 0.6), rnd(-0.6, 0.6), rnd(-0.6, 0.6)), s: rnd(0.7, 1.4), ph: rnd(0, 6) }));
-  fl.forEach(f => { if (Math.abs(f.p.x) < 2.4 && f.p.z > -2.5) f.p.x += Math.sign(f.p.x || 1) * 2.6; });
-  scene.add(floaters);
-
-  // ---------- camera path ----------
-  const K = [
-    { p: 0.00, cam: [0, 2.4, 7.6], look: [0, 0.5, 0] },
-    { p: 0.06, cam: [0, 2.4, 7.6], look: [0, 0.5, 0] },
-    { p: 0.36, cam: [0, 3.3, 5.2], look: [0, -0.15, 0] },
-    { p: 0.46, cam: [0, 3.1, 7.0], look: [0, 0.5, 0] },
-    { p: 0.60, cam: [0.4, 3.1, 7.0], look: [0, 0.5, 0] },
-    { p: 0.70, cam: [0, 3.9, 5.3], look: [0, -0.2, 0] },
-    { p: 0.84, cam: [0, 3.9, 5.3], look: [0, -0.2, 0] },
-    { p: 0.93, cam: [0, 7.6, 1.0], look: [0, -0.2, 0] },
-    { p: 1.00, cam: [0, 2.6, 0.3], look: [0, 0.0, 0], dive: true },
-  ];
-  const vA = new THREE.Vector3(), vB = new THREE.Vector3(), lA = new THREE.Vector3(), lB = new THREE.Vector3();
-  let fit = 1, lift = 0;
-  function placeCamera(p) {
-    let i = 1; while (i < K.length - 1 && K[i].p < p) i++;
-    const a = K[i - 1], b = K[i];
-    const t = Math.min(1, Math.max(0, (p - a.p) / ((b.p - a.p) || 1)));
-    const e = b.dive ? t * t * t : t * t * (3 - 2 * t);
-    lA.fromArray(a.look); lB.fromArray(b.look);
-    vA.fromArray(a.cam).sub(lA).multiplyScalar(a.dive ? 1 : fit).add(lA);
-    vB.fromArray(b.cam).sub(lB).multiplyScalar(b.dive ? 1 : fit).add(lB);
-    camera.position.lerpVectors(vA, vB, e);
-    lA.lerp(lB, e);
-    const down = lift * (1 - (b.dive ? e : 0));
-    camera.position.y -= down; lA.y -= down;
-    camera.lookAt(lA);
-  }
-
-  // ---------- scroll + render loop ----------
-  const clamp = x => Math.min(1, Math.max(0, x));
-  const seg = (p, a, b) => clamp((p - a) / (b - a));
-  const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-  const target = () => clamp(-section.getBoundingClientRect().top / (section.offsetHeight - innerHeight));
-  let p = target(), mx = 0, my = 0, tmx = 0, tmy = 0, stage3 = -1, visible = true, last = performance.now();
-  let picked = null, egg = 1;
-
-  prefBtns.forEach(b => b.addEventListener('click', () => { picked = b.dataset.pref; }));
-  addEventListener('pointermove', e => { tmx = e.clientX / innerWidth - 0.5; tmy = e.clientY / innerHeight - 0.5; }, { passive: true });
-
-  function resize() {
-    const w = pin.clientWidth, h = pin.clientHeight;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h; camera.updateProjectionMatrix();
-    fit = Math.max(1, 0.9 / camera.aspect);
-    lift = camera.aspect < 0.9 ? 0.75 : 0;
-  }
-  new ResizeObserver(resize).observe(pin); resize();
-  new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(section);
-
-  // the labelled pieces fly in fixed directions so the labels never bunch up
-  eggs[0].out.set(0.1, 1.45, 0.3); broc[0].out.set(1.05, 1.0, 0.3); leaves[3].out.set(-1.05, 1.0, 0.3);
-  const tagAnchors = [() => eggs[0].obj, () => broc[0].obj, () => null, () => leaves[3].obj];
-  const ricePoint = at(0.75, 185, 0.12);
-  const wp = new THREE.Vector3(), m4 = new THREE.Matrix4(), q4 = new THREE.Quaternion(), s4 = new THREE.Vector3(), e4 = new THREE.Euler();
-
-  function frame(now) {
-    requestAnimationFrame(frame);
-    const dt = Math.min(0.05, Math.max(0, (now - last) / 1000)); last = Math.max(last, now);
-    if (!visible) return;
-    p += (target() - p) * (1 - Math.exp(-dt * 7));
-    mx += (tmx - mx) * 0.06; my += (tmy - my) * 0.06;
-    const t = now / 1000;
-    const follow = 1 - seg(p, 0.86, 0.95);
-
-    const spin = ease(seg(p, 0.06, 0.36));
-    let ry = -0.5 * (1 - spin) + spin * Math.PI * 2 + seg(p, 0.40, 0.66) * 0.9 + Math.sin(seg(p, 0.66, 0.86) * Math.PI) * 0.35 + ease(seg(p, 0.86, 0.96)) * Math.PI * 0.5;
-    if (!still && p < 0.06) ry += Math.sin(t * 0.5) * 0.3;
-    stage.rotation.y = ry + mx * 0.6 * follow;
-    stage.rotation.x = 0.1 * (1 - spin) + my * 0.22 * follow;
-    stage.rotation.z = -mx * 0.07 * follow;
-    stage.position.y = BY + (still ? 0 : Math.sin(t * 1.2) * 0.02 * follow);
-
-    const autoPref = stage3 === 2 ? (seg(p, 0.64, 0.86) < 0.5 ? 'veg' : 'egg') : 'egg';
-    const pref = stage3 === 2 && picked ? picked : autoPref;
-    egg += ((pref === 'egg' ? 1 : 0) - egg) * (1 - Math.exp(-dt * 8));
-    prefBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.pref === pref));
-
-    const A = ease(seg(p, 0.40, 0.50)) * (1 - ease(seg(p, 0.58, 0.68)));
-    for (const pc of pieces) {
-      const a = clamp(A * 1.35 - pc.delay * 0.35);
-      const ea = a * a * (3 - 2 * a);
-      pc.obj.position.copy(pc.pos).addScaledVector(pc.out, ea);
-      if (!still) pc.obj.position.y += Math.sin(t * 1.6 + pc.phase) * 0.05 * ea;
-      pc.obj.rotation.set(pc.rot.x + pc.spin.x * ea, pc.rot.y + pc.spin.y * ea, pc.rot.z + pc.spin.z * ea);
-      const show = pc.kind === 'egg' ? egg : pc.kind === 'veg' ? 1 - egg : 1;
-      pc.obj.scale.setScalar(pc.obj.userData.s * Math.max(0.0001, show));
-      pc.obj.visible = show > 0.01;
-    }
-
-    for (let i = 0; i < FLOAT; i++) {
-      const f = fl[i], k = still ? 0 : t;
-      wp.set(f.p.x + Math.sin(k * 0.3 + f.ph) * 0.3, f.p.y + Math.sin(k * 0.45 + f.ph) * 0.35 - p * 1.5, f.p.z);
-      q4.setFromEuler(e4.set(f.r.x + k * f.v.x * 0.4, f.r.y + k * f.v.y * 0.4, f.r.z + k * f.v.z * 0.4));
-      m4.compose(wp, q4, s4.setScalar(f.s)); floaters.setMatrixAt(i, m4);
-    }
-    floaters.instanceMatrix.needsUpdate = true;
-
-    placeCamera(p);
-    camera.updateMatrixWorld();
-
-    tags.forEach((el, i) => {
-      const o = tagAnchors[i]();
-      if (o) o.getWorldPosition(wp); else wp.copy(ricePoint).applyMatrix4(stage.matrixWorld);
-      wp.project(camera);
-      const half = el.offsetWidth / 2 + 10;
-      const x = Math.min(pin.clientWidth - half, Math.max(half, (wp.x * 0.5 + 0.5) * pin.clientWidth)), y = Math.max(80, (-wp.y * 0.5 + 0.5) * pin.clientHeight);
-      el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -150%)`;
-      el.style.opacity = clamp(A * 1.6 - 0.4).toFixed(3);
-    });
-
-    title.style.opacity = 1 - seg(p, 0.01, 0.07);
-    title.style.transform = `translateY(${-seg(p, 0, 0.07) * 40}px)`;
-    hint.classList.toggle('off', p > 0.02);
-    fade.style.opacity = seg(p, 0.95, 1);
-    rail.style.transform = `scaleY(${p})`;
-    const s = p < 0.08 ? -1 : p < 0.40 ? 0 : p < 0.64 ? 1 : p < 0.86 ? 2 : p < 0.95 ? 3 : -1;
-    if (s !== stage3) {
-      if (s !== 2) picked = null;
-      stage3 = s; caps.forEach((c, i) => c.classList.toggle('on', i === s));
-      stepNo.textContent = String(Math.max(0, s) + 1).padStart(2, '0');
-    }
-    renderer.render(scene, camera);
-  }
-  requestAnimationFrame(frame);
-  section.dataset.ready = '1';
-}
-</script>
-<script>
-// If the 3D intro cannot start (old browser, no WebGL, library blocked), hide it so the page opens on the hero.
-setTimeout(function(){var s=document.getElementById('reveal');if(s&&!s.dataset.ready)s.classList.add('no-webgl')},12000);
-</script>
+<script src="assets/js/site.js?v=20261111" defer></script>
+<script src="assets/js/cursor.js?v=20261111" defer></script>
 </body>
 </html>

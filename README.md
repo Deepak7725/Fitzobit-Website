@@ -4,10 +4,12 @@ The public landing page for Fitzobit (healthy meal delivery, Thanjavur). It is *
 delivery app** (fitzobit.onrender.com). There is no server and no database. Orders go to Fitzobit's WhatsApp.
 
 ## What's on the page
-1. **3D meal bowl** (Three.js, drawn in code, no model file). As you scroll, the bowl turns, the ingredients lift out
-   with labels (Protein, Fibre, Good carbs, Greens), it switches between Veg and With egg (buttons), then it looks down
-   into the bowl and fades into the page. With a mouse, the bowl tilts towards the pointer.
-2. Hero section, How it works, **Menu** (Monthly / Weekly / Trial tabs, Veg / With egg choice, quantity, Add to cart).
+1. **Menu first** (made for phones, as most visitors come from Instagram reels): a short intro line and fact chips, then
+   the menu straight away, as **2-column tiles** (Instamart style): picture with a **+** on it that turns into **− n +**
+   once added, package chip, price, price per box, name, Veg / With egg. Monthly / Weekly / Trial tabs stay pinned under
+   the header. On laptops/desktops the intro is a **banner** with a food picture (`bannerImage` in config.js; drawn meals
+   until then). Meal photos: `photo` per meal in config.js (drawings until then). The 3D bowl was removed on 2026-11-11.
+2. **How it works** is a help sheet: the **?** button in the header (or the link above the menu) opens it.
 3. **Cart and order form** (name, mobile, address, pincode, Monday–Saturday start date, delivery time, optional Google
    Maps location and note). **Order on WhatsApp** opens WhatsApp with the whole order typed in English, and the customer
    presses Send. Fitzobit confirms and sends a UPI link or QR.
@@ -19,14 +21,18 @@ delivery app** (fitzobit.onrender.com). There is no server and no database. Orde
 ## Files
 | File | What it is |
 |---|---|
-| `index.html` | The page, plus the 3D bowl script (kept inline so double-clicking `index.html` also works) |
+| `index.html` | The page (menu, help sheet, cart drawer) |
 | `assets/js/config.js` | **Everything you may need to change**: WhatsApp number, phone, email, address, FSSAI, pincodes, delivery times, prices, meal names and descriptions, Instagram photos |
 | `assets/js/i18n.js` | All the page text in English and Tamil |
 | `assets/js/site.js` | Menu, cart, order form, pincode check, language switch |
 | `assets/js/cursor.js`, `assets/css/cursor.css` | Fork cursor and veggie burst |
-| `assets/css/site.css`, `assets/css/reveal3d.css` | Styles |
+| `assets/css/site.css` | Styles |
 | `assets/img/` | Logo with a clear background (made from the app's `logo.png`), split into picture and word, plus a light word version for the dark footer |
 | `netlify.toml` | Netlify settings (short caches, so updates show within an hour) |
+
+**After changing any file in `assets/css` or `assets/js`** (including prices in `config.js`): in `index.html`, change the
+`?v=20261111` at the end of the six css/js links to a new value (e.g. today's date, `?v=20261120`). Visitors' browsers then
+load the new files at once instead of a saved copy.
 
 ## Still to fill in (marked `PLACEHOLDER` in `assets/js/config.js`)
 - `whatsapp`: the order number, as `91` + 10 digits (until it is set, the order form shows a small orange note)
@@ -34,7 +40,9 @@ delivery app** (fitzobit.onrender.com). There is no server and no database. Orde
 - `deliveryTimes`: the time choices in the order form
 - `pincodes`: currently 613001–613010. Please check this list for Thanjavur city.
 - Meal `desc` texts: drafts, to be checked against the WhatsApp catalogue
-- `instagramPhotos`: up to 6 photo paths (put the files in `assets/img/`)
+- `instagramPhotos`: done 2026-11-11 (6 reel covers `assets/img/ig-1…6.jpg`, each opens its reel). To change a post,
+  save its picture into `assets/img/` and change that line's `img` and `url`.
+- `photo` per meal and `bannerImage`: real food photos (drawings are shown until then)
 - Have someone check the Tamil text in `assets/js/i18n.js`
 - Macros (protein, carbs, fibre) per meal will come later
 
