@@ -102,7 +102,7 @@
         b.addEventListener('click', function () { b.dataset.q > 0 ? addToCart(m.id, current, pref, 1) : addToCart(m.id, current, pref, -1); });
       });
       $$('.pref button', tile).forEach(function (b) {
-        b.appendChild(document.createTextNode(t(b.dataset.p === 'veg' ? 'pref.veg' : 'pref.egg')));
+        b.appendChild(document.createTextNode(t(b.dataset.p === 'veg' ? 'pref.veg' : 'pref.eggShort')));   // short label: tiles are narrow
         b.setAttribute('aria-pressed', b.dataset.p === ch.pref);
         b.addEventListener('click', function () { ch.pref = b.dataset.p; renderMenu(); });   // the + / − then follows this choice
       });
@@ -366,6 +366,14 @@
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -10% 0px' }) : null;
   $$('.area-card, .faq details, .insta .tiles').forEach(function (el) { el.classList.add('rise'); if (io) io.observe(el); else el.classList.add('in'); });
+
+  // ?samsungfix=info: show what this phone reports, for checking the Samsung dark-mode correction
+  if (/[?&]samsungfix=info/.test(location.search) && window.FITZ_SAMSUNG) {
+    var s = window.FITZ_SAMSUNG, el = $('#toast');
+    el.textContent = 'Samsung Internet: ' + (s.samsung ? 'yes' : 'no') + ' · dark mode reported: ' + (s.dark ? 'yes' : 'no') +
+      ' · correction: ' + (document.documentElement.classList.contains('samsung-dark-fix') ? 'ON' : 'off') + ' (mode ' + s.mode + ')';
+    el.classList.add('on');
+  }
 
   applyLang();
 })();

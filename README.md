@@ -31,7 +31,7 @@ delivery app** (fitzobit.onrender.com). There is no server and no database. Orde
 | `netlify.toml` | Netlify settings (short caches, so updates show within an hour) |
 
 **After changing any file in `assets/css` or `assets/js`** (including prices in `config.js`): in `index.html`, change the
-`?v=20261111` at the end of the six css/js links to a new value (e.g. today's date, `?v=20261120`). Visitors' browsers then
+`?v=...` at the end of the six css/js links to a new value (e.g. today's date, `?v=20261120`). Visitors' browsers then
 load the new files at once instead of a saved copy.
 
 ## Still to fill in (marked `PLACEHOLDER` in `assets/js/config.js`)
@@ -48,6 +48,14 @@ load the new files at once instead of a saved copy.
 
 Prices were copied from the app's Money page price list on 2026-11-10. If you change a price in the app, also change it
 here, because the website does not read the app.
+
+## Samsung Internet dark mode
+The page is light-only (`color-scheme: only light`); Chrome respects that, Samsung Internet's dark mode does not and
+darkens the page anyway (Samsung says sites cannot switch it off). Workaround: when Samsung Internet reports dark mode,
+the whole page is colour-flipped once more (`.samsung-dark-fix` in `site.css`, switched on in the `<head>` of
+`index.html`). `samsungDarkFix` in `config.js`: `'test'` (now) = only with `?samsungfix=1` in the address; `'on'` = every
+Samsung Internet visitor in dark mode; `'off'` = never. `?samsungfix=info` shows what the phone reports; `?samsungfix=0`
+turns it off for that visit.
 
 ## Preview on this computer
 Double-click `index.html`, or in Claude's browser pane use the launch entry `fitzobit-website`

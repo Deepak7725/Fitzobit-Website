@@ -22,6 +22,11 @@ window.FITZ = {
     { img: 'assets/img/ig-5.jpg', url: 'https://www.instagram.com/vjpraveen_vlogs/reel/DeswNWyI3Ie/' },
     { img: 'assets/img/ig-6.jpg', url: 'https://www.instagram.com/fitzobit/reel/DesvAUNJOXQ/' },
   ],
+  // Samsung Internet dark-mode correction (Samsung darkens the page even though it is light-only; this flips it back).
+  // 'test' = only with ?samsungfix=1 in the address (for checking on a Samsung phone), 'on' = for every Samsung Internet
+  // visitor in dark mode, 'off' = never. Add ?samsungfix=info to see what the phone reports.
+  samsungDarkFix: 'test',
+
   // Wide food photo for the banner at the top on laptops/desktops (phones open straight on the menu),
   // e.g. 'assets/img/banner.webp' (about 1200 × 700). Empty = drawn meals.                        PLACEHOLDER
   bannerImage: '',

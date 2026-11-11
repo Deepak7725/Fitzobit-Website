@@ -7,7 +7,7 @@ window.FITZ_TEXT = {
   en: {
     'nav.menu': 'Menu', 'nav.how': 'How it works', 'nav.area': 'Delivery area', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
     'nav.order': 'Order now', 'cart.open': 'Open cart',
-    'pref.veg': 'Veg', 'pref.egg': 'With egg',
+    'pref.veg': 'Veg', 'pref.egg': 'With egg', 'pref.eggShort': 'With egg',
 
     'hero.eyebrow': 'Meal delivery · Thanjavur', 'hero.h1a': 'Eat well.', 'hero.h1b': 'Every day.',
     'intro.lede': 'Fresh, balanced meal boxes at your door, Monday to Saturday. Order on WhatsApp.',
@@ -62,7 +62,7 @@ window.FITZ_TEXT = {
   ta: {
     'nav.menu': 'மெனு', 'nav.how': 'எப்படி செயல்படுகிறது', 'nav.area': 'டெலிவரி பகுதி', 'nav.faq': 'கேள்விகள்', 'nav.contact': 'தொடர்பு',
     'nav.order': 'ஆர்டர் செய்', 'cart.open': 'கார்ட்டைத் திற',
-    'pref.veg': 'சைவம்', 'pref.egg': 'முட்டையுடன்',
+    'pref.veg': 'சைவம்', 'pref.egg': 'முட்டையுடன்', 'pref.eggShort': 'முட்டை',
 
     'hero.eyebrow': 'உணவு டெலிவரி · தஞ்சாவூர்', 'hero.h1a': 'நன்றாக சாப்பிடுங்கள்.', 'hero.h1b': 'தினமும்.',
     'intro.lede': 'புதிய, சமச்சீரான உணவுப் பெட்டிகள் உங்கள் வீட்டுக்கே, திங்கள் முதல் சனி வரை. WhatsApp-ல் ஆர்டர் செய்யுங்கள்.',
