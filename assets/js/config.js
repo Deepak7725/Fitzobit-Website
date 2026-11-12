@@ -45,7 +45,8 @@ window.FITZ = {
   // Descriptions: the three Fit Boxes follow the catalogue; the rest are DRAFTS for the owner to check.   PLACEHOLDER
   // icon: meal | bowl | oats | drink (the drawing on the tile).
   // photo: real photo for the tile (square, 600 × 600), shown instead of the drawing. Taken from the photos in the Fitzobit
-  //        WhatsApp chat on 2026-11-12 (owner picked them). Detox Drink has no photo yet, so it keeps its drawing.
+  //        WhatsApp chat on 2026-11-12 (owner picked them). Detox Drink photo was made in Canva (AI image,
+  //        2026-11-12, owner's request) as no real photo exists yet.
   menu: [
     { id: 'regular', icon: 'meal', photo: 'assets/img/meal-regular.webp', egg: true, prices: { monthly: 3499, weekly: 899, trial: 189 },
       name: { en: 'Regular Fit Box', ta: 'ரெகுலர் ஃபிட் பாக்ஸ்' },
@@ -79,7 +80,7 @@ window.FITZ = {
       name: { en: 'Protein Oats Bowl (25 g protein)', ta: 'புரோட்டீன் ஓட்ஸ் பவுல் (25 கி புரதம்)' },
       desc: { en: 'Oats with whey protein, a different variation every day.',
               ta: 'வே புரோட்டீனுடன் ஓட்ஸ் — தினமும் ஒரு புதிய வகை.' } },
-    { id: 'detox', icon: 'drink', egg: false, prices: { monthly: 1199, weekly: 399, trial: 189 },
+    { id: 'detox', icon: 'drink', photo: 'assets/img/meal-detox.webp', egg: false, prices: { monthly: 1199, weekly: 399, trial: 189 },
       name: { en: 'Daily Detox Drink', ta: 'தினசரி டீடாக்ஸ் பானம்' },
       desc: { en: 'A fresh, light detox drink to go with your day.',
               ta: 'உங்கள் நாளுக்கு ஒரு புதிய, லேசான டீடாக்ஸ் பானம்.' } },
