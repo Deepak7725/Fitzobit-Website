@@ -44,38 +44,38 @@ window.FITZ = {
   // egg: true = customer chooses Veg or With egg; false = no choice shown.
   // Descriptions: the three Fit Boxes follow the catalogue; the rest are DRAFTS for the owner to check.   PLACEHOLDER
   // icon: meal | bowl | oats | drink (the drawing on the tile).
-  // photo: optional real photo for the tile, e.g. photo: 'assets/img/regular.webp' (square, about 600 × 600).
-  //        When a meal has a photo it is shown instead of the drawing.                           PLACEHOLDER
+  // photo: real photo for the tile (square, 600 × 600), shown instead of the drawing. Taken from the photos in the Fitzobit
+  //        WhatsApp chat on 2026-11-12 (owner picked them). Detox Drink has no photo yet, so it keeps its drawing.
   menu: [
-    { id: 'regular', icon: 'meal', egg: true, prices: { monthly: 3499, weekly: 899, trial: 189 },
+    { id: 'regular', icon: 'meal', photo: 'assets/img/meal-regular.webp', egg: true, prices: { monthly: 3499, weekly: 899, trial: 189 },
       name: { en: 'Regular Fit Box', ta: 'ரெகுலர் ஃபிட் பாக்ஸ்' },
       desc: { en: '3-compartment healthy meal box — our everyday balanced meal.',
               ta: '3 பகுதி ஆரோக்கிய உணவுப் பெட்டி — தினசரி சமச்சீர் உணவு.' } },
-    { id: 'medium', icon: 'meal', egg: true, prices: { monthly: 3999, weekly: 999, trial: 189 },
+    { id: 'medium', icon: 'meal', photo: 'assets/img/meal-medium.webp', egg: true, prices: { monthly: 3999, weekly: 999, trial: 189 },
       name: { en: 'Medium Fit Box', ta: 'மீடியம் ஃபிட் பாக்ஸ்' },
       desc: { en: '5-compartment complete meal box for active days.',
               ta: 'சுறுசுறுப்பான நாட்களுக்கு 5 பகுதி முழு உணவுப் பெட்டி.' } },
-    { id: 'large', icon: 'meal', egg: true, prices: { monthly: 4599, weekly: 1149, trial: 189 },
+    { id: 'large', icon: 'meal', photo: 'assets/img/meal-large.webp', egg: true, prices: { monthly: 4599, weekly: 1149, trial: 189 },
       name: { en: 'Large Fit Box', ta: 'லார்ஜ் ஃபிட் பாக்ஸ்' },
       desc: { en: '8-compartment high-protein box for training days and big appetites.',
               ta: 'உடற்பயிற்சி நாட்களுக்கும் அதிக பசிக்கும் 8 பகுதி அதிக புரத பெட்டி.' } },
-    { id: 'proteinsalad', icon: 'bowl', egg: false, prices: { monthly: 3799, weekly: 949, trial: 189 },
+    { id: 'proteinsalad', icon: 'bowl', photo: 'assets/img/meal-proteinsalad.webp', egg: false, prices: { monthly: 3799, weekly: 949, trial: 189 },
       name: { en: 'Protein Salad Bowl', ta: 'புரோட்டீன் சாலட் பவுல்' },
       desc: { en: 'Fuel your body, boost your protein: a big fresh salad bowl packed with protein.',
               ta: 'உடலுக்கு ஆற்றல், கூடுதல் புரதம்: புரதம் நிறைந்த பெரிய புதிய சாலட் பவுல்.' } },
-    { id: 'proteinpunch', icon: 'meal', egg: false, prices: { monthly: 3799, weekly: 949, trial: 189 },
+    { id: 'proteinpunch', icon: 'meal', photo: 'assets/img/meal-proteinpunch.webp', egg: false, prices: { monthly: 3799, weekly: 949, trial: 189 },
       name: { en: 'Protein Punch Meal Box', ta: 'புரோட்டீன் பஞ்ச் மீல் பாக்ஸ்' },
       desc: { en: 'Fuel your body, boost your protein: a balanced meal box with an extra protein punch.',
               ta: 'உடலுக்கு ஆற்றல், கூடுதல் புரதம்: கூடுதல் புரதத்துடன் சமச்சீர் உணவுப் பெட்டி.' } },
-    { id: 'mealbowl', icon: 'bowl', egg: true, prices: { monthly: 2899, weekly: 894, trial: 189 },
+    { id: 'mealbowl', icon: 'bowl', photo: 'assets/img/meal-mealbowl.webp', egg: true, prices: { monthly: 2899, weekly: 894, trial: 189 },
       name: { en: 'Standalone Protein Salad', ta: 'ஸ்டாண்ட்அலோன் புரோட்டீன் சாலட்' },
       desc: { en: 'Fresh daily protein salad in an eco-friendly bowl.',
               ta: 'சூழலுக்கு உகந்த பவுலில் தினமும் புதிய புரோட்டீன் சாலட்.' } },
-    { id: 'oats', icon: 'oats', egg: false, prices: { monthly: 3599, weekly: 999, trial: 189 },
+    { id: 'oats', icon: 'oats', photo: 'assets/img/meal-oats.webp', egg: false, prices: { monthly: 3599, weekly: 999, trial: 189 },
       name: { en: 'Oats & Muesli Breakfast', ta: 'ஓட்ஸ் & மியூஸ்லி காலை உணவு' },
       desc: { en: 'Fresh, high-fibre breakfast bowl of oats and muesli with fruit and nuts.',
               ta: 'பழம், கொட்டைகளுடன் நார்ச்சத்து நிறைந்த ஓட்ஸ், மியூஸ்லி காலை உணவு.' } },
-    { id: 'wheyoats', icon: 'oats', egg: false, prices: { monthly: 4299, weekly: 1199, trial: 189 },
+    { id: 'wheyoats', icon: 'oats', photo: 'assets/img/meal-wheyoats.webp', egg: false, prices: { monthly: 4299, weekly: 1199, trial: 189 },
       name: { en: 'Protein Oats Bowl (25 g protein)', ta: 'புரோட்டீன் ஓட்ஸ் பவுல் (25 கி புரதம்)' },
       desc: { en: 'Oats with whey protein, a different variation every day.',
               ta: 'வே புரோட்டீனுடன் ஓட்ஸ் — தினமும் ஒரு புதிய வகை.' } },
